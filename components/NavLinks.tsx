@@ -7,9 +7,10 @@ export default function NavLinks() {
   let [hoveredIndex, setHoveredIndex] = useState(null);
 
   return [
-    ["Twitter", "https://twitter.com/abdo_eth"],
-    ["GitHub", "https://www.github.com/chrisabdo"],
-    ["LinkedIn", "https://www.linkedin.com/in/christopher-abdo"],
+    ["Instagram", "https://www.instagram.com/gencmerttr"],
+    ["Youtube", "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5"],
+    ["GitHub", "https://github.com/Mertgencc"],
+    ["LinkedIn", "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/"],
   ].map(([label, href], index) => (
     <Link
       key={label}

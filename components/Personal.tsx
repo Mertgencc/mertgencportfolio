@@ -8,7 +8,7 @@ export default function Personal() {
         Mert GENC
       </Link>
       <h2 className="text-xl text-[#999] pt-2 mb-2 ml-2 hidden lg:flex">
-        Full Stack Web  Developer
+        Full Stack Developer
       </h2>
     </div>
   );

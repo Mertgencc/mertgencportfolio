@@ -4,55 +4,51 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    name: "University",
-    description: " Atatürk University",
+    name: "Blogs ",
+    description: "Fairs, Symposiums And Award Ceremonies",
     stack:
       "I'm studying on the information systems and technologies undergraduate program. Check out my github account to access some of my important projects." ,
     badges: [
       {
-        name: "Hackathon Grand Prize Winner",
+        name: "Kuzey Doğu Anadolu Career Fair",
       },
       {
-        name: "Next.js",
+        name: "Atatürk University",
       },
       {
-        name: "TailwindCSS",
+        name: "Symposiums",
       },
       {
-        name: "Filecoin Virtual Machine SDK",
+        name: "Full Stack Web Developer",
       },
       {
-        name: "Vercel",
+        name: "Back End Developer",
       },
       {
         name: "Front End Developer",
       },
     ],
-    link: "https://ethglobal.com/showcase/soulmates-wveqg",
-    github: "https://github.com/rohanagarwal/hack-fevm-submission",
+    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       {
-        image: "/soulmates.png",
+        image: "/Füme ve Beyaz Modern Dinamik Ürün Tanıtım Instagram Reels Videosu.png",
       },
       {
         image:
-          "https://storage.googleapis.com/ethglobal-api-production/projects%2Fwveqg%2Fimages%2FScreen%20Shot%202022-11-20%20at%2011.43.33%20AM.png",
+          "/WhatsApp Görsel 2024-05-09 saat 16.04.18_6d38ec37.jpg",
       },
       {
         image:
-          "https://storage.googleapis.com/ethglobal-api-production/projects%2Fwveqg%2Fimages%2FScreen%20Shot%202022-11-20%20at%2011.44.25%20AM.png",
-      },
-      {
-        image:
-          "https://storage.googleapis.com/ethglobal-api-production/projects%2Fwveqg%2Fimages%2FScreen%20Shot%202022-11-20%20at%2011.44.45%20AM.png",
+          "/WhatsApp Görsel 2024-05-09 saat 16.09.45_a4bd71a8.jpg",
       },
     ],
   },
   {
-    name: "MovieGPT",
-    description: "An AI Movie Recommender",
+    name: "Education & Software Projects",
+    description: "Atatürk University & Information Systems And Technologies",
     stack:
-      "MovieGPT is built with Next.js, TailwindCSS, OpenAI API, and Vercel Edge Functions.",
+      "I'm studying on the information systems and technologies undergraduate program. Check out my github account to access some of my important projects.",
     badges: [
       {
         name: "Next.js",
@@ -67,85 +63,71 @@ const projects = [
         name: "Vercel Edge Functions + Deploy",
       },
     ],
-    link: "https://moviegpt.vercel.app/",
-    github: "https://github.com/chrisabdo/moviegpt",
+    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       {
         image:
-          "https://pbs.twimg.com/media/FjlPDiJWAAEBVK-?format=jpg&name=large",
+          "/blender (1).png",
       },
       {
         image:
-          "https://pbs.twimg.com/media/FjlPDiIWYAENHT6?format=jpg&name=large",
+          "/blender (1)2.png",
       },
       {
         image:
-          "https://pbs.twimg.com/media/FjlPDiKXEAAYnEc?format=jpg&name=large",
-      },
-      {
-        image:
-          "https://pbs.twimg.com/media/FjlPDiGXwAE5Tai?format=jpg&name=large",
-      },
-      {
-        image:
-          "https://pbs.twimg.com/media/FjZqb62XEAoVS3M?format=jpg&name=large",
+          "/capcut.png",
       },
     ],
   },
   {
-    name: "Etherwav",
-    description: "A Community Driven Web3 Radio",
+    name: "Graphic Design & Modeling & Programming Course",
+    description: "You can see some of my graphic design and modeling projects here",
     stack:
-      "Etherwav is built with Next.js, TailwindCSS, Web3, and various smart contracts.",
+      "You can reach my social media accounts.",
     badges: [
       {
-        name: "Next.js",
+        name: "Instagram",
       },
       {
-        name: "TailwindCSS",
+        name: "Youtube",
       },
       {
-        name: "Ethers",
+        name: "LinkedIN",
       },
       {
-        name: "ThirdWeb",
-      },
-      {
-        name: "RadixUI / @shadcn",
-      },
-      {
-        name: "Vercel",
+        name: "Social Media",
       },
     ],
-    link: "https://etherwav-1.vercel.app/",
-    github: "https://github.com/chrisabdo/etherwav-radix-v2",
+    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       {
-        image: "/etherwav.jpeg",
+        image: "/programmıng course.png",
       },
       {
-        image: "/etherwav2.jpeg",
+        image: "/programmıng course2.png",
       },
       {
-        image: "/etherwav3.jpeg",
+        image: "/programmıng course5.png",
       },
     ],
   },
 
   {
-    name: "DeStemr",
-    description: "A Decentralized music NFT marketplace for stems",
+    name: "Social Media",
+    description: "Instagram, Youtube, LinkedIN Account",
     stack:
-      "DeStemr is built with Next.js, TailwindCSS, Web3, and various smart contracts.",
+      "For additional resources about the software, please reach my Youtube page using the link below.",
     badges: [
       {
-        name: "Next.js",
+        name: "Python",
       },
       {
-        name: "TailwindCSS",
+        name: "HTML - CSS",
       },
       {
-        name: "Ethers",
+        name: "JavaScript",
       },
       {
         name: "Vercel",
@@ -157,20 +139,20 @@ const projects = [
         name: "Solidity",
       },
     ],
-    link: "https://ethglobal.com/showcase/destemr-y5mw7",
-    github: "https://github.com/ChrisAbdo/ETH-SF-DeStemr",
+    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       {
         image:
-          "https://storage.googleapis.com/ethglobal-api-production/projects%2Fy5mw7%2Fimages%2Fimage_2022-11-05_233311822.png",
+          "/@gencmerttrinsta.png",
       },
       {
         image:
-          "https://storage.googleapis.com/ethglobal-api-production/projects%2Fy5mw7%2Fimages%2Fimage_2022-11-05_233326750.png",
+          "/@gencmerttryoutube.png",
       },
       {
         image:
-          "https://storage.googleapis.com/ethglobal-api-production/projects%2Fy5mw7%2Fimages%2Fimage_2022-11-05_233340316.png",
+          "/@gencmerttr3.png",
       },
     ],
   },
@@ -180,7 +162,7 @@ export default function Hero() {
   return (
     <div className="min-h-screen">
       {/* Welcome Card */}
-      <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl">
+      <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3x1">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <p className="text-base font-semibold leading-7 text-[#999]">
@@ -189,7 +171,7 @@ export default function Hero() {
             <p className="text-base font-semibold leading-7 text-[#999]">
               Hello there!
             </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-5xl">
+            <h2 className="mt-2 text-3x1 font-bold tracking-tight text-white sm:text-1xl">
               I&apos;m Mert Genc, a Full Stack Developer focusing in Web3 and
               AI in Istanbul, Türkiye.
             </h2>
@@ -387,12 +369,13 @@ export default function Hero() {
             <p className="text-base font-semibold leading-7 text-[#999]">
               2022-2024
             </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-4xl">
-              My Education And Projects
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-1xl">
+              My Portfolio Sites
             </h2>
             <p className="mt-3 text-lg text-gray-300">
 
-              Some information about education and here are some of my favorite projects I&apos;ve worked on.
+            You will be able to see information about me and the work and projects I&apos;ve done so far.
+              
             </p>
           </div>
         </div>
@@ -461,7 +444,7 @@ export default function Hero() {
                           </svg>
                         </span>
                         <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-                          Launch App
+                          Visit Youtube Videos
                         </span>
                       </a>
 
