@@ -11,6 +11,7 @@ export default function NavLinks() {
     ["Youtube", "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5"],
     ["GitHub", "https://github.com/Mertgencc"],
     ["LinkedIn", "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/"],
+    ["Karekod", "https://www.canva.com/design/DAGaDfNsarE/uSMn_Q-YPxLl2vOfhZBcVg/edit"],
   ].map(([label, href], index) => (
     <Link
       key={label}
