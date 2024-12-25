@@ -1,12 +1,8 @@
-import React from "react";
-
-const About = () => {
+export default function ArduinoPage() {
   return (
     <div>
-      <h1>Hakkımızda</h1>
-      <p>Bu, sitemizin hakkımızda sayfasıdır.</p>
+      <h1>Arduino Sayfası</h1>
+      <p>Bu, Arduino ile ilgili bilgiler içeren bir sayfadır.</p>
     </div>
   );
-};
-
-export default About;
+}
