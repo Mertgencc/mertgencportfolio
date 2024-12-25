@@ -63,6 +63,44 @@ const projects = [
         name: "Vercel Edge Functions + Deploy",
       },
     ],
+    
+    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
+    carousel: [
+      {
+        image:
+          "/blender (1).png",
+      },
+      {
+        image:
+          "/blender (1)2.png",
+      },
+      {
+        image:
+          "/capcut.png",
+      },
+    ],
+  },
+  {
+    name: "Education & Software Projects",
+    description: "Atatürk University & Information Systems And Technologies",
+    stack:
+      "I'm studying on the information systems and technologies undergraduate program. Check out my github account to access some of my important projects.",
+    badges: [
+      {
+        name: "Next.js",
+      },
+      {
+        name: "TailwindCSS",
+      },
+      {
+        name: "OpenAI API",
+      },
+      {
+        name: "Vercel Edge Functions + Deploy",
+      },
+    ],
+    
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
