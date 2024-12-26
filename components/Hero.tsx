@@ -177,8 +177,7 @@ export default function Hero() {
               Hello there!
             </p>
             <h2 className="mt-2 text-3x1 font-bold tracking-tight text-white sm:text-1xl">
-              I&apos;m Mert Genc, a Full Stack Developer focusing in Web3 and
-              AI in Istanbul, Türkiye.
+              Merhaba ben Mert, fikirleri koda dönüştürmeyi sanat olarak gören bir full-stack geliştiriciyim. Karmaşık problemleri çözmek, kullanıcı dostu deneyimler yaratmak ve her projede teknolojiyi bir adım öteye taşımak benim tutkum. Hayalleri gerçeğe dönüştürmeye hazırım!
             </h2>
           </div>
         </div>

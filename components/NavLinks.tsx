@@ -12,7 +12,7 @@ export default function NavLinks() {
     ["LinkedIn", "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/"],
     ["Karekod", "https://www.canva.com/design/DAGaDfNsarE/uSMn_Q-YPxLl2vOfhZBcVg/edit"],
   ];
-
+  
   return (
     <>
       {links.map(([label, href], index) => (
