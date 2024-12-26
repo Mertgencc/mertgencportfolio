@@ -399,7 +399,7 @@ export default function Hero() {
 
         <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
           <img
-            src="Ekran görüntüsü 2024-12-26 144233.jpg"
+            src="next/Ekran görüntüsü 2024-12-26 144233.jpg"
             alt="Project"
             className="w-full h-48 object-cover rounded-md"
           />
@@ -409,7 +409,7 @@ export default function Hero() {
 
         <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
           <img
-            src="tinkercad.jpg"
+            src="next/tinkercad.jpg"
             alt="Project"
             className="w-full h-48 object-cover rounded-md"
           />
@@ -419,7 +419,7 @@ export default function Hero() {
 
         <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
           <img
-            src="vs.jpg"
+            src="next/vs.jpg"
             alt="Project"
             className="w-full h-48 object-cover rounded-md"
           />
