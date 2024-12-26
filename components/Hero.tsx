@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    name: "Blogs ",
-    description: "Fairs, Symposiums And Award Ceremonies",
+    name: "Blog Yazılarım ",
+    description: "Fuarlar, Sempozyumlar ve Ödül Törenleri",
     stack:
-      "I'm studying on the information systems and technologies undergraduate program. Check out my github account to access some of my important projects." ,
+      "Bilişim Sistemleri ve Teknolojileri lisans programında öğrenim görüyorum. Bazı önemli projelerime erişmek için GitHub hesabıma göz atabilirsiniz" ,
     badges: [
       {
         name: "Kuzey Doğu Anadolu Career Fair",
@@ -45,10 +45,10 @@ const projects = [
     ],
   },
   {
-    name: "Education & Software Projects",
+    name: "Eğitim & Yazılım Projelerim",
     description: "Atatürk University & Information Systems And Technologies",
     stack:
-      "I'm studying on the information systems and technologies undergraduate program. Check out my github account to access some of my important projects.",
+      "Bilişim Sistemleri ve Teknolojileri lisans programında okuyorum. Önemli projelerimden bazılarına erişmek için GitHub hesabıma göz atabilirsiniz.",
     badges: [
       {
         name: "Next.js",
@@ -86,10 +86,10 @@ const projects = [
     ],
   },
   {
-    name: "Graphic Design & Modeling & Programming Course",
-    description: "You can see some of my graphic design and modeling projects here",
+    name: "Grafik Tasarım & Modelleme & Programlama Kursları",
+    description: "Grafik tasarım ve modelleme projelerimden bazılarını burada görebilirsiniz.",
     stack:
-      "You can reach my social media accounts.",
+      "Sosyal medya hesaplarıma ulaşabilirsiniz",
     badges: [
       {
         name: "Instagram",
@@ -120,10 +120,10 @@ const projects = [
   },
 
   {
-    name: "Social Media",
-    description: "Instagram, Youtube, LinkedIN Account",
+    name: "Sosyal Medya",
+    description: "Instagram, Youtube, LinkedIN Hesaplarım",
     stack:
-      "For additional resources about the software, please reach my Youtube page using the link below.",
+      "Yazılımla ilgili ek kaynaklar için aşağıdaki bağlantıyı kullanarak YouTube sayfama ulaşabilirsiniz.",
     badges: [
       {
         name: "Python",
@@ -374,11 +374,11 @@ export default function Hero() {
               2022-2024
             </p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-1xl">
-              My Portfolio Sites
+              Portfolyo Sitem
             </h2>
             <p className="mt-3 text-lg text-gray-300">
 
-            You will be able to see information about me and the work and projects I&apos;ve done so far.
+            Hakkımda, yapılan çalışmalar ve projeler hakkında bilgilere ulaşabileceksiniz
               
             </p>
           </div>
