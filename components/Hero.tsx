@@ -178,7 +178,7 @@ export default function Hero() {
               Herkese Merhaba !
             </p>
             <h2 className="mt-2 text-3x1 font-bold tracking-tight text-white sm:text-1xl">
-              Merhaba ben Mert, fikirleri koda dönüştürmeyi sanat olarak gören bir full-stack geliştiriciyim. Karmaşık problemleri çözmek, kullanıcı dostu deneyimler yaratmak ve her projede teknolojiyi bir adım öteye taşımak benim tutkum. Hayalleri gerçeğe dönüştürmeye hazırım!
+              Merhaba ben Mert, fikirleri koda dönüştürmeyi sanat olarak gören bir full-stack geliştiriciyim.
             </h2>
           </div>
         </div>
