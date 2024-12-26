@@ -372,7 +372,7 @@ export default function Hero() {
   className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl mt-2"
 >
   <div className="mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="mx-auto max-w-2xl lg:mx-0">
+    <div className="mx-auto max-w-7xl lg:mx-0">
       <p className="text-base font-semibold leading-7 text-[#999]">
         2022-2025
       </p>
@@ -386,18 +386,18 @@ export default function Hero() {
       </p>
 
       {/* Kart yapısı burada başlıyor */}
-      <div className="card-container mt-10 grid gap-6 lg:grid-cols-3 sm:grid-cols-2">
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6">
+      <div className="card-container mt-10 grid gap-6 x-lg:grid-cols-4 sm:grid-cols-4">
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 ">
           <img
             src="WhatsApp Görsel 2024-12-26 saat 14.32.40_ed4e2fb0.jpg"
             alt="Project"
             className="w-full h-48 object-cover rounded-md"
           />
-          <h3 className="text-xl font-semibold mt-4">Proje Başlığı 1</h3>
+          <h3 className="text-xl font-semibold mt-4">Ardunio Projesi</h3>
           <p className="text-sm mt-2">Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileir Bölümü, Robotik Kodlama Dersi projesi olan ardunio projemizden bazı görüntüler.</p>
         </div>
 
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6">
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
           <img
             src="Ekran görüntüsü 2024-12-26 144233.jpg"
             alt="Project"
@@ -405,6 +405,26 @@ export default function Hero() {
           />
           <h3 className="text-xl font-semibold mt-4">Bootstrap Web Projesi</h3>
           <p className="text-sm mt-2">Bootstrap ile farklı bir tasarıma sahip site tasarımları yapıldı. Bir masaüstü ve mobil duvar kağıdı duvar kağıdı edinme sitesi tasarlandı.</p>
+        </div>
+
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
+          <img
+            src="tinkercad.jpg"
+            alt="Project"
+            className="w-full h-48 object-cover rounded-md"
+          />
+          <h3 className="text-xl font-semibold mt-4">Tinkercad İle Devre</h3>
+          <p className="text-sm mt-2">Tinkercad üzerinden ardunio üzerinde yapılacak işlemler için devre geliştirilip, test edildi.</p>
+        </div>
+
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
+          <img
+            src="vs.jpg"
+            alt="Project"
+            className="w-full h-48 object-cover rounded-md"
+          />
+          <h3 className="text-xl font-semibold mt-4">Web Kodlama</h3>
+          <p className="text-sm mt-2">Visual Studio Code IDE'si ile beraber front-end üzerinde önemli projeler geliştirildi.</p>
         </div>
 
         
