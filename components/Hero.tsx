@@ -386,58 +386,60 @@ export default function Hero() {
       </p>
 
       {/* Kart yapısı burada başlıyor */}
-      <div className="card-container mt-10 grid gap-6 x-lg:grid-cols-4 sm:grid-cols-4">
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 ">
-          
-<Image 
-  src="/ardunio.jpg" 
-  alt="Image description" 
-  width={500} 
-  height={300} 
-/>
+      <div className="card-container mt-10 grid gap-6 lg:grid-cols-4 sm:grid-cols-2">
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
+          <Image 
+            src="/ardunio.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
           <h3 className="text-xl font-semibold mt-4">Ardunio Projesi</h3>
           <p className="text-sm mt-2">Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileir Bölümü, Robotik Kodlama Dersi projesi olan ardunio projemizden bazı görüntüler.</p>
         </div>
 
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
-        <Image 
-  src="/bootstrap.jpg" 
-  alt="Image description" 
-  width={500} 
-  height={300} 
-/>
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
+          <Image 
+            src="/bootstrap.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
           <h3 className="text-xl font-semibold mt-4">Bootstrap Web Projesi</h3>
           <p className="text-sm mt-2">Bootstrap ile farklı bir tasarıma sahip site tasarımları yapıldı. Bir masaüstü ve mobil duvar kağıdı duvar kağıdı edinme sitesi tasarlandı.</p>
         </div>
 
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
-        <Image 
-  src="/vs.jpg" 
-  alt="Image description" 
-  width={500} 
-  height={300} 
-/>
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
+          <Image 
+            src="/tinkercad.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
           <h3 className="text-xl font-semibold mt-4">Tinkercad İle Devre</h3>
           <p className="text-sm mt-2">Tinkercad üzerinden ardunio üzerinde yapılacak işlemler için devre geliştirilip, test edildi.</p>
         </div>
 
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800">
-        <Image 
-  src="/tinkercad.jpg" 
-  alt="Image description" 
-  width={500} 
-  height={300} 
-/>
+        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
+          <Image 
+            src="/vs.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
           <h3 className="text-xl font-semibold mt-4">Web Kodlama</h3>
           <p className="text-sm mt-2">Visual Studio Code IDE si ile beraber front-end üzerinde önemli projeler geliştirildi.</p>
         </div>
-
-        
       </div>
       {/* Kart yapısı burada bitiyor */}
     </div>
   </div>
 </div>
+
 
 
 
