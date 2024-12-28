@@ -452,6 +452,8 @@ export default function Hero() {
         ulaşabileceksiniz
       </p>
 
+      
+
       {/* Kart yapısı burada başlıyor */}
       <div className="card-container mt-10 grid gap-6 lg:grid-cols-4 sm:grid-cols-2">
         <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">

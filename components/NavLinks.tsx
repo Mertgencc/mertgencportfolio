@@ -11,14 +11,14 @@ export default function NavLinks() {
     ["GitHub", "https://github.com/Mertgencc"],
     ["LinkedIn", "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/"],
   ];
-  
+
   return (
-    <>
+    <div className="flex justify-center gap-7"> {/* Linkler arası boşluk ve ortalama */}
       {links.map(([label, href], index) => (
         <Link
           key={label}
           href={href}
-          className="relative -my-2 -mx-3 rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors delay-150 hover:text-gray-900 hover:delay-[0ms]"
+          className="relative rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors delay-150 hover:text-gray-900"
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -39,6 +39,6 @@ export default function NavLinks() {
           <span className="relative z-10 text-[#999]">{label}</span>
         </Link>
       ))}
-    </>
+    </div>
   );
 }
