@@ -6,6 +6,7 @@ import NavLinks from "@/components/NavLinks";
 import Header from "@/components/Header";
 import Personal from "@/components/Personal";
 import Hero from "@/components/Hero";
+
 import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function Layout() {

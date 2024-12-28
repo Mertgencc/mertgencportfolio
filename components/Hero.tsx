@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
+
+
 const projects = [
   {
     name: "Blog Yazılarım ",
@@ -168,21 +170,86 @@ export default function Hero() {
     <div className="min-h-screen">
       {/* Welcome Card */}  
 
-      <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3x1">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <p className="text-base font-semibold leading-7 text-[#999]">
-              HAKKIMDA
-            </p>
-            <p className="text-base font-semibold leading-7 text-[#999]">
-              Herkese Merhaba !
-            </p>
-            <h2 className="mt-2 text-3x1 font-bold tracking-tight text-white sm:text-1xl">
-              Merhaba ben Mert, fikirleri koda dönüştürmeyi sanat olarak gören bir full-stack geliştiriciyim.
-            </h2>
-          </div>
+      <div
+  id="#projects"
+  className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl mt-2"
+>
+  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="mx-auto max-w-7xl lg:mx-0">
+      <p className="text-base font-semibold leading-7 text-[#999]">
+        2022-2026
+      </p>
+      <p className="text-base font-semibold leading-7 text-[#999]">
+        Hakkımda | Eğitimler | Intern
+      </p>
+
+      <p className="mt-3 text-l text-gray-300">
+        Eğitimim ve Intern öğrencilik ile ilgili bilgilere ulaşabilirsiniz 
+      </p>
+
+      {/* Kart yapısı burada başlıyor */}
+      <div className="card-container mt-10 grid gap-6 lg:grid-cols-3 sm:grid-cols-1">
+        <div className="card relative bg-[#222] text-white rounded-lg shadow-lg hover:shadow-gray-800 overflow-hidden">
+          <a href="#project1" className="block">
+          <Image 
+            src="/üniversite.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
+            
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <h3 className="text-xl font-semibold text-white">Eğitim/Öğretim</h3>
+            </div>
+          </a>
+          <p className="text-sm mt-4 px-4 pb-2">
+            Atatürk Üniversitesi, Bilişim Sistemleri ve Teknolojileri bölümü öğrencisi
+          </p>
+        </div>
+
+        <div className="card relative bg-[#222] text-white rounded-lg shadow-lg hover:shadow-gray-800 overflow-hidden">
+          <a href="#project2" className="block">
+          <Image 
+            src="/staj.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <h3 className="text-xl font-semibold text-white">Intern</h3>
+            </div>
+          </a>
+          <p className="text-sm mt-4 px-4 pb-2">
+            Trabzon Teknoloji Geliştirme Bölgesi (Teknokent), Elasoft Yazılım Şirketi bünyesinde staj yapıldı
+          </p>
+        </div>
+
+        <div className="card relative bg-[#222] text-white rounded-lg shadow-lg hover:shadow-gray-800 overflow-hidden">
+          <a href="#project3" className="block">
+          <Image 
+            src="/hakkımda.jpg" 
+            alt="Image description" 
+            width={500} 
+            height={300} 
+            className="w-full h-[175px] object-cover rounded-md"
+          />
+            
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <h3 className="text-xl font-semibold text-white">Hakkımda</h3>
+            </div>
+          </a>
+          <p className="text-sm mt-4 px-4 pb-2">
+            Ben Mert Genç. Full-Stack Yazılım geliştiriyorum
+          </p>
         </div>
       </div>
+      {/* Kart yapısı burada bitiyor */}
+    </div>
+  </div>
+</div>
+
 
       {/* Marquee Section */}
       <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-0 rounded-3xl mt-2">
@@ -431,6 +498,7 @@ export default function Hero() {
             height={300} 
             className="w-full h-[175px] object-cover rounded-md"
           />
+          
           <h3 className="text-xl font-semibold mt-4">Web Kodlama</h3>
           <p className="text-sm mt-2">Visual Studio Code IDE si ile beraber front-end üzerinde önemli projeler geliştirildi.</p>
         </div>
@@ -506,7 +574,7 @@ export default function Hero() {
                           </svg>
                         </span>
                         <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-                          Visit Youtube Videos
+                          Visit LinkedIn
                         </span>
                       </a>
 
