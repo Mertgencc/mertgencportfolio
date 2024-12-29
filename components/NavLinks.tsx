@@ -48,7 +48,7 @@ export default function NavLinks() {
       <div className="sm:hidden relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full px-4 py-2 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-left"
+          className="w-full px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-left"
         >
           Menü
         </button>
