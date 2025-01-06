@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 
 
+
 const projects = [
   {
     name: "Blog Yazılarım ",
@@ -184,7 +185,7 @@ export default function Hero() {
       </p>
 
       <p className="mt-3 text-l text-gray-300">
-        Eğitimim ve Intern öğrencilik ile ilgili bilgilere ulaşabilirsiniz 
+        Eğitimim ve Intern ile ilgili bilgilere ulaşabilirsiniz 
       </p>
 
       {/* Kart yapısı burada başlıyor */}
