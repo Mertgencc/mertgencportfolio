@@ -56,7 +56,7 @@ export default function ProjectsPage() {
               target="_blank"
               className="mt-3 inline-block text-blue-500 hover:underline"
             >
-              GitHub'da Görüntüle
+              GitHub&apos;da Görüntüle
             </a>
           </div>
         ))}
