@@ -11,6 +11,7 @@ export default function NavLinks() {
     ["Youtube", "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5"],
     ["GitHub", "https://github.com/Mertgencc"],
     ["LinkedIn", "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/"],
+    ["Projeler", "/projects"],
   ];
 
   return (
