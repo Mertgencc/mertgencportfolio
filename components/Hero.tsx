@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    name: "Blog Yazılarım ",
+    name: "Blog Yazılarım",
     description: "Fuarlar, Sempozyumlar ve Ödül Törenleri",
     stack:
       "Bilişim Sistemleri ve Teknolojileri lisans programında öğrenim görüyorum. Bazı önemli projelerime erişmek için GitHub hesabıma göz atabilirsiniz" ,
