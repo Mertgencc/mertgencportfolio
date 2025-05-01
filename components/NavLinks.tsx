@@ -12,6 +12,7 @@ export default function NavLinks() {
     ["GitHub", "https://github.com/Mertgencc"],
     ["LinkedIn", "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/"],
     ["Projeler", "/projects"],
+    ["Tasarımlar", "/portfolioInsta"],
   ];
 
   return (
