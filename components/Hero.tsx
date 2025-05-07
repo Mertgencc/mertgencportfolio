@@ -503,7 +503,7 @@ export default function Hero() {
           />
           
           <h3 className="text-xl font-semibold mt-4">Web Kodlama</h3>
-          <p className="text-sm mt-2">Visual Studio Code IDE si ile beraber front-end üzerinde önemli projeler geliştirildi.</p>
+          <p className="text-sm mt-2">Visual Studio Code IDE si ile front-end üzerinde önemli projeler geliştirildi.</p>
         </div>
       </div>
       {/* Kart yapısı burada bitiyor */}
