@@ -621,7 +621,7 @@ export default function Hero() {
                           </svg>
                         </span>
                         <span className="flex relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-                          GitHub Repo
+                          GitHub  Repo
                         </span>
                       </a>
                     </div>
