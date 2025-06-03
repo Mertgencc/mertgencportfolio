@@ -490,7 +490,7 @@ export default function Hero() {
             className="w-full h-[175px] object-cover rounded-md"
           />
           <h3 className="text-xl font-semibold mt-4">Tinkercad İle Devre</h3>
-          <p className="text-sm mt-2">Tinkercad üzerinden ardunio üzerinde yapılacak işlemler için devre geliştirilip, test edildi.</p>
+          <p className="text-sm mt-2">Tinkercad üzerinden Ardunio üzerinde yapılacak işlemler için devre geliştirilip, test edildi.</p>
         </div>
 
         <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
