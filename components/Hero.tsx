@@ -35,9 +35,9 @@ const projects: Project[] = [
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/career-fair-post.png", alt: "Kariyer Fuarı Gönderisi" },
-      { image: "/symposium-post.jpg", alt: "Sempozyum Gönderisi" },
-      { image: "/award-ceremony-post.jpg", alt: "Ödül Töreni Gönderisi" },
+      { image: "/MYSTERY.png", alt: "Kariyer Fuarı Gönderisi" },
+      { image: "/MYSTERY.png", alt: "Sempozyum Gönderisi" },
+      { image: "/MYSTERY.png", alt: "Ödül Töreni Gönderisi" },
     ],
   },
   {
@@ -53,10 +53,10 @@ const projects: Project[] = [
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/arduino.png", alt: "Arduino Projesi" },
-      { image: "/bootstrap.jpg", alt: "Bootstrap Web Projesi" },
-      { image: "/tinkercad.jpg", alt: "Tinkercad Devresi" },
-      { image: "/vs.jpg", alt: "Web Kodlama" },
+      { image: "/MYSTERY.png", alt: "Arduino Projesi" },
+      { image: "/MYSTERY.png", alt: "Bootstrap Web Projesi" },
+      { image: "/MYSTERY.png", alt: "Tinkercad Devresi" },
+      { image: "/MYSTERY.png", alt: "Web Kodlama" },
     ],
   },
   {
@@ -72,10 +72,10 @@ const projects: Project[] = [
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/blender-design-1.png", alt: "Blender Tasarımı 1" },
-      { image: "/blender-design-2.png", alt: "Blender Tasarımı 2" },
-      { image: "/capcut-design.png", alt: "Capcut Tasarımı" },
-      { image: "/arduino-design.png", alt: "Arduino Tasarımı" },
+      { image: "/MYSTERY.png", alt: "Blender Tasarımı 1" },
+      { image: "/MYSTERY.png", alt: "Blender Tasarımı 2" },
+      { image: "/MYSTERY.png", alt: "Capcut Tasarımı" },
+      { image: "/aMYSTERY.png", alt: "Arduino Tasarımı" },
     ],
   },
   {
@@ -91,10 +91,10 @@ const projects: Project[] = [
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/cosmetic-design.png", alt: "Kozmetik Konulu Tasarım" },
-      { image: "/elegant-design.png", alt: "Şık ve Sade Tasarım" },
-      { image: "/diamond-promo.png", alt: "Pırlanta Tanıtımı" },
-      { image: "/horror-movie-poster.png", alt: "Korku Filmi Afişi" },
+      { image: "/MYSTERY.png", alt: "Kozmetik Konulu Tasarım" },
+      { image: "/MYSTERY.png", alt: "Şık ve Sade Tasarım" },
+      { image: "/MYSTERY.png", alt: "Pırlanta Tanıtımı" },
+      { image: "/MYSTERY.png", alt: "Korku Filmi Afişi" },
     ],
   },
 ];
@@ -174,7 +174,8 @@ const Hero: React.FC = () => {
                 className="mt-10 md:mt-0 md:w-1/2 flex justify-center"
               >
                 <Image
-                  src="/profile-photo.jpg"
+                  src="/MYSTERY.png
+                  "
                   width={400}
                   height={400}
                   className="rounded-xl border border-gray-700 shadow-xl hover:shadow-gray-800 transition-shadow"
@@ -388,7 +389,7 @@ const Hero: React.FC = () => {
                             height={500}
                             className="w-full h-[250px] object-contain rounded-md"
                             placeholder="blur"
-                            blurDataURL="/placeholder.png"
+                            blurDataURL="/MYSTERY.png"
                           />
                         </div>
                         <h3 className="text-xl font-semibold mt-4">{item.alt}</h3>
