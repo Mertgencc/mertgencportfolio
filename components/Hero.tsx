@@ -1,258 +1,198 @@
 import Image from "next/image";
-import React from "react";
+import Head from "next/head";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
+// TypeScript interfaces for type safety
+interface CarouselItem {
+  image: string;
+  alt: string;
+}
 
+interface Project {
+  name: string;
+  description: string;
+  stack: string;
+  badges: { name: string }[];
+  link: string;
+  github: string;
+  carousel: CarouselItem[];
+}
 
-
-const projects = [
+const projects: Project[] = [
   {
     name: "Blog Yazılarım",
     description: "Fuarlar, Sempozyumlar ve Ödül Törenleri",
     stack:
-      "Bilişim Sistemleri ve Teknolojileri lisans programında öğrenim görüyorum. Bazı önemli projelerime erişmek için GitHub hesabıma göz atabilirsiniz" ,
+      "Bilişim Sistemleri ve Teknolojileri lisans programında öğrenim görüyorum. Bazı önemli projelerime GitHub hesabımdan ulaşabilirsiniz.",
     badges: [
-      {
-        name: "Kuzey Doğu Anadolu Career Fair",
-      },
-      {
-        name: "Atatürk University",
-      },
-      {
-        name: "Symposiums",
-      },
-      {
-        name: "Full Stack Web Developer",
-      },
-      {
-        name: "Back End Developer",
-      },
-      {
-        name: "Front End Developer",
-      },
+      { name: "Kuzey Doğu Anadolu Career Fair" },
+      { name: "Atatürk University" },
+      { name: "Symposiums" },
+      { name: "Full Stack Web Developer" },
+      { name: "Back End Developer" },
+      { name: "Front End Developer" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      {
-        image: "/Füme ve Beyaz Modern Dinamik Ürün Tanıtım Instagram Reels Videosu.png",
-      },
-      {
-        image:
-          "/WhatsApp Görsel 2024-05-09 saat 16.04.18_6d38ec37.jpg",
-      },
-      {
-        image:
-          "/WhatsApp Görsel 2024-05-09 saat 16.09.45_a4bd71a8.jpg",
-      },
+      { image: "/Füme ve Beyaz Modern Dinamik Ürün Tanıtım Instagram Reels Videosu.png", alt: "Kariyer Fuarı Gönderisi" },
+      { image: "/WhatsApp Görsel 2024-05-09 saat 16.04.18_6d38ec37.jpg", alt: "Sempozyum Gönderisi" },
+      { image: "/WhatsApp Görsel 2024-05-09 saat 16.09.45_a4bd71a8.jpg", alt: "Ödül Töreni Gönderisi" },
     ],
   },
   {
     name: "Eğitim & Yazılım Projelerim",
-    description: "Atatürk University & Information Systems And Technologies",
+    description: "Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileri",
     stack:
-      "Bilişim Sistemleri ve Teknolojileri lisans programında okuyorum. Önemli projelerimden bazılarına erişmek için GitHub hesabıma göz atabilirsiniz.",
+      "Next.js, TailwindCSS ve modern teknolojilerle projeler geliştiriyorum. Detaylar için GitHub hesabıma göz atın.",
     badges: [
-      {
-        name: "Next.js",
-      },
-      {
-        name: "TailwindCSS",
-      },
-      {
-        name: "OpenAI API",
-      },
-      {
-        name: "Vercel Edge Functions + Deploy",
-      },
+      { name: "Next.js" },
+      { name: "TailwindCSS" },
+      { name: "OpenAI API" },
+      { name: "Vercel" },
     ],
-    
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      {
-        image:
-          "/blender (1).png",
-      },
-      {
-        image:
-          "/blender (1)2.png",
-      },
-      {
-        image:
-          "/capcut.png",
-      },
-      {
-        image:
-          "/ardunio.png",
-      },
+      { image: "/arduino.png", alt: "Arduino Projesi" },
+      { image: "/bootstrap.jpg", alt: "Bootstrap Web Projesi" },
+      { image: "/tinkercad.jpg", alt: "Tinkercad Devresi" },
+      { image: "/vs.jpg", alt: "Web Kodlama" },
     ],
   },
   {
-    name: "Grafik Tasarım & Modelleme & Programlama Kursları",
-    description: "Grafik tasarım ve modelleme projelerimden bazılarını burada görebilirsiniz.",
-    stack:
-      "Sosyal medya hesaplarıma ulaşabilirsiniz",
+    name: "Grafik Tasarım & Modelleme",
+    description: "Blender ve Capcut ile yaratıcı tasarımlar ve 3D modellemeler.",
+    stack: "Sosyal medya için görsel içerikler üretiyorum. Daha fazlası için sosyal medya hesaplarımı ziyaret edin.",
     badges: [
-      {
-        name: "Instagram",
-      },
-      {
-        name: "Youtube",
-      },
-      {
-        name: "LinkedIN",
-      },
-      {
-        name: "Social Media",
-      },
+      { name: "Blender" },
+      { name: "Capcut" },
+      { name: "Adobe Photoshop" },
+      { name: "Social Media" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      {
-        image: "/programmıng course.png",
-      },
-      {
-        image: "/programmıng course2.png",
-      },
-      {
-        image: "/programmıng course5.png",
-      },
+      { image: "/blender (1).png  ", alt: "Blender Tasarımı 1" },
+      { image: "/blender (1)2.png", alt: "Blender Tasarımı 2" },
+      { image: "/capcut.png", alt: "Capcut Tasarımı" },
+      { image: "/ardunio.png", alt: "Arduino Tasarımı" },
     ],
   },
-
   {
-    name: "Sosyal Medya",
-    description: "Instagram, Youtube, LinkedIN Hesaplarım",
-    stack:
-      "Yazılımla ilgili ek kaynaklar için aşağıdaki bağlantıyı kullanarak YouTube sayfama ulaşabilirsiniz.",
+    name: "Sosyal Medya Tasarımları",
+    description: "Instagram'da paylaştığım yaratıcı tasarımlar ve projeler.",
+    stack: "Yazılım ve tasarım içeriklerimi YouTube ve Instagram'da paylaşıyorum.",
     badges: [
-      {
-        name: "Python",
-      },
-      {
-        name: "HTML - CSS",
-      },
-      {
-        name: "JavaScript",
-      },
-      {
-        name: "Vercel",
-      },
-      {
-        name: "Truffle",
-      },
-      {
-        name: "Solidity",
-      },
+      { name: "Instagram" },
+      { name: "YouTube" },
+      { name: "LinkedIn" },
+      { name: "Social Media" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      {
-        image:
-          "/@gencmerttrinsta.png",
-      },
-      {
-        image:
-          "/@gencmerttryoutube.png",
-      },
-      {
-        image:
-          "/@gencmerttr3.png",
-      },
+      { image: "/GÜÇLÜ (1).png", alt: "Kozmetik Konulu Tasarım" },
+      { image: "/göster.png", alt: "Şık ve Sade Tasarım" },
+      { image: "/Zarafet.png", alt: "Pırlanta Tanıtımı" },
+      { image: "/MYSTERY.png", alt: "Korku Filmi Afişi" },
     ],
   },
 ];
 
-export default function Hero() {
+const Hero: React.FC = () => {
+  const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const scrollLeft = (index: number) => {
+    const ref = scrollRefs.current[index];
+    if (ref) ref.scrollBy({ left: -350, behavior: "smooth" });
+  };
+
+  const scrollRight = (index: number) => {
+    const ref = scrollRefs.current[index];
+    if (ref) ref.scrollBy({ left: 350, behavior: "smooth" });
+  };
+
   return (
-    <div className="min-h-screen">
-      {/* Welcome Card */}  
+    <>
+      <Head>
+        <title>Mert Genç - Full-Stack Developer Portfolio</title>
+        <meta name="description" content="Mert Genç'in yazılım, grafik tasarım ve sosyal medya projelerini keşfedin. Next.js, TailwindCSS ve modern teknolojilerle geliştirilen kullanıcı dostu projeler." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="Mert Genç, Full-Stack Developer, Next.js, TailwindCSS, Instagram Designs, Portfolio" />
+        <meta name="author" content="Mert Genç" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="min-h-screen bg-black text-white">
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-12 rounded-3xl mx-4 mt-4"
+        >
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <section className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="text-center md:text-left md:w-1/2">
+                <motion.h1
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2, duration: 0.6 }}
+                  className="text-4xl md:text-6xl font-extrabold tracking-tight text-white mb-6"
+                >
+                  Merhaba, ben <span className="text-cyan-400">Mert</span> <br />
+                  Full-Stack Developer
+                </motion.h1>
+                <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+                  Modern web teknolojileriyle kullanıcı dostu projeler geliştiriyorum. Yazılım, grafik tasarım ve sosyal medya içerik üretimiyle dijital dünyada fark yaratıyorum.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                  <motion.a
+                    href="/projects"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-cyan-500 text-black font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-cyan-400 transition duration-300"
+                  >
+                    Projelerim
+                  </motion.a>
+                  <motion.a
+                    href="https://www.instagram.com/gencmerttr/"
+                    target="_blank"
+                    rel="noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gray-700 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-gray-600 transition duration-300"
+                  >
+                    Instagram Tasarımlarım
+                  </motion.a>
+                </div>
+              </div>
 
-      <div
-  id="#projects"
-  className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl mt-2"
->
-  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="mx-auto max-w-7xl lg:mx-0">
-      <p className="text-base font-semibold leading-7 text-[#999]">
-        2022-2026
-      </p>
-      <p className="text-base font-semibold leading-7 text-[#999]">
-        Hakkımda | Eğitimler | Intern
-      </p>
+              <div>
+                
+              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="mt-10 md:mt-0 md:w-1/2 flex justify-center"
+              >
+                <Image
+                  src="/WhatsApp Görsel 2025-06-13 saat 20.15.32_b9c7b784.jpg"
+                  width={400}
+                  height={400}
+                  className="rounded-xl border border-gray-700 shadow-xl hover:shadow-gray-800 transition-shadow"
+                  alt="Mert Genç - Profil Fotoğrafı"
+                  priority
+                />
+              </motion.div>
+            </section>
+          </div>
+        </motion.div>
 
-      <p className="mt-3 text-l text-gray-300">
-        Eğitimim ve Intern ile ilgili bilgilere ulaşabilirsiniz 
-      </p>
-
-      {/* Kart yapısı burada başlıyor */}
-      <div className="card-container mt-10 grid gap-6 lg:grid-cols-3 sm:grid-cols-1">
-        <div className="card relative bg-[#222] text-white rounded-lg shadow-lg hover:shadow-gray-800 overflow-hidden">
-          <a href="#project1" className="block">
-          <Image 
-            src="/üniversite.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-            
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <h3 className="text-xl font-semibold text-white">Eğitim/Öğretim</h3>
-            </div>
-          </a>
-          <p className="text-sm mt-4 px-4 pb-2">
-            Atatürk Üniversitesi, Bilişim Sistemleri ve Teknolojileri bölümü öğrencisi
-          </p>
-        </div>
-
-        <div className="card relative bg-[#222] text-white rounded-lg shadow-lg hover:shadow-gray-800 overflow-hidden">
-          <a href="#project2" className="block">
-          <Image 
-            src="/staj.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <h3 className="text-xl font-semibold text-white">Intern</h3>
-            </div>
-          </a>
-          <p className="text-sm mt-4 px-4 pb-2">
-            Trabzon Teknoloji Geliştirme Bölgesi (Teknokent), Elasoft Yazılım Şirketi bünyesinde staj yapıldı
-          </p>
-        </div>
-
-        <div className="card relative bg-[#222] text-white rounded-lg shadow-lg hover:shadow-gray-800 overflow-hidden">
-          <a href="#project3" className="block">
-          <Image 
-            src="/hakkımda.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-            
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-              <h3 className="text-xl font-semibold text-white">Hakkımda</h3>
-            </div>
-          </a>
-          <p className="text-sm mt-4 px-4 pb-2">
-            Ben Mert Genç. Full-Stack Yazılım geliştiriyorum
-          </p>
-        </div>
-      </div>
-      {/* Kart yapısı burada bitiyor */}
-    </div>
-  </div>
-</div>
-
-
-      {/* Marquee Section */}
+        {/* Technologies Section */}
+        {/* Marquee Section */}
       <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-0 rounded-3xl mt-2">
         <div className="relative flex overflow-x-hidden">
           <div className="py-12 animate-marquee whitespace-nowrap flex">
@@ -432,247 +372,209 @@ export default function Hero() {
         </div>
       </div>
 
-      
-
-      {/* Projects Selection Section */}
-      <div
-  id="#projects"
-  className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl mt-2"
->
-  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="mx-auto max-w-7xl lg:mx-0">
-      <p className="text-base font-semibold leading-7 text-[#999]">
-        2022-2025
-      </p>
-      <p className="text-base font-semibold leading-7 text-[#999]">
-        ETKİNLİKLER - DUYURULAR
-      </p>
-
-      <p className="mt-3 text-lg text-gray-300">
-        Hakkımda, yapılan çalışmalar ve projeler hakkında bilgilere
-        ulaşabileceksiniz
-      </p>
-
-      
-
-      {/* Kart yapısı burada başlıyor */}
-      <div className="card-container mt-10 grid gap-6 lg:grid-cols-4 sm:grid-cols-2">
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
-          <Image 
-            src="/ardunio.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-          <h3 className="text-xl font-semibold mt-4">Ardunio Projesi</h3>
-          <p className="text-sm mt-2">Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileir Bölümü, Robotik Kodlama Dersi projesi olan ardunio projemizden bazı görüntüler.</p>
-        </div>
-
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
-          <Image 
-            src="/bootstrap.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-          <h3 className="text-xl font-semibold mt-4">Bootstrap Web Projesi</h3>
-          <p className="text-sm mt-2">Bootstrap ile farklı bir tasarıma sahip site tasarımları yapıldı. Bir masaüstü ve mobil duvar kağıdı duvar kağıdı edinme sitesi tasarlandı.</p>
-        </div>
-
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
-          <Image 
-            src="/tinkercad.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-          <h3 className="text-xl font-semibold mt-4">Tinkercad İle Devre</h3>
-          <p className="text-sm mt-2">Tinkercad üzerinden Ardunio üzerinde yapılacak işlemler için devre geliştirilip, test edildi.</p>
-        </div>
-
-        <div className="card bg-[#222] text-white rounded-lg shadow-lg p-6 hover:shadow-gray-800 h-[350px]">
-          <Image 
-            src="/vs.jpg" 
-            alt="Image description" 
-            width={500} 
-            height={300} 
-            className="w-full h-[175px] object-cover rounded-md"
-          />
-          
-          <h3 className="text-xl font-semibold mt-4">Web Kodlama</h3>
-          <p className="text-sm mt-2">Visual Studio Code IDEsi ile front-end üzerinde önemli projeler geliştirildi.</p>
-        </div>
-      </div>
-      {/* Kart yapısı burada bitiyor */}
-    </div>
-  </div>
-</div>
-
-
-
-
-      {/* Projects Section */}
-      {projects.map((project, index) => (
-        <div key={index}>
-          <div className="flex flex-col sm:flex-row justify-between space-x-2 mt-2">
-            <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl sm:mt-0 w-full sm:w-1/4">
-              <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:mx-0">
-                  <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
-                    {project.name}
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl sm:mt-0 w-full sm:w-1/2 mt-2">
-              <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl lg:mx-0">
-                  <h2 className="text-2xl font-bold tracking-tight text-white sm:text-4xl">
-                    {project.description}
-                  </h2>
-                  <p className="mt-3 text-lg text-gray-300">{project.stack}</p>
-
-                  <div className="flex justify-between">
-                    <div className="mt-7 space-x-2">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-white transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-[#333] group"
-                      >
-                        <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#555] group-hover:h-full"></span>
-                        <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-                          <svg
-                            className="w-5 h-5 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-                          <svg
-                            className="w-5 h-5 text-white"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            ></path>
-                          </svg>
-                        </span>
-                        <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-                          Visit LinkedIn
-                        </span>
-                      </a>
-
-                      <a
-                        href={project.github}
-                        rel="noreferrer"
-                        target="_blank"
-                        className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold text-white transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-[#333] group"
-                      >
-                        <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#555] group-hover:h-full"></span>
-                        <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                          </svg>
-                        </span>
-                        <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          >
-                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                          </svg>
-                        </span>
-                        <span className="flex relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
-                          GitHub  Repo
-                        </span>
-                      </a>
-                    </div>
-                    <div></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl mt-2 sm:mt-0 w-full sm:w-1/4">
-              <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="mx-auto max-w-2xl">
-                  {/* <span className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-800">
-                    Next.js
-                  </span> */}
-
-                  {project.badges.map((badge, index) => (
-                    <div key={index} className="inline-flex">
+        {/* Projects Section */}
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.8 }}
+            className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-12 rounded-3xl mx-4 mt-2"
+          >
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
+                <div className="w-full lg:w-2/3">
+                  <h2 className="text-3xl font-bold text-white mb-4">{project.name}</h2>
+                  <p className="text-lg text-gray-300 mb-4">{project.description}</p>
+                  <p className="text-base text-gray-400 mb-6">{project.stack}</p>
+                  <div className="flex flex-wrap gap-3 mb-6">
+                    {project.badges.map((badge, badgeIndex) => (
                       <motion.span
-                        className="items-center rounded-md bg-gray-100 px-2.5 py-0.5 text-sm font-medium text-gray-800"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.9 }}
+                        key={badgeIndex}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center rounded-full bg-gray-700 px-4 py-1.5 text-sm font-medium text-white"
                       >
                         {badge.name}
                       </motion.span>
-                      &nbsp;
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                  <div className="flex gap-4">
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center px-6 py-3 font-semibold text-white bg-cyan-500 rounded-lg hover:bg-cyan-400 transition duration-300"
+                    >
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                      YouTube'da İzle
+                    </motion.a>
+                    <motion.a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center px-6 py-3 font-semibold text-white bg-gray-700 rounded-lg hover:bg-gray-600 transition duration-300"
+                    >
+                      <svg
+                        className="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                        />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                      </svg>
+                      GitHub Repo
+                    </motion.a>
+                  </div>
+                </div>
+
+                
+                <div className="w-full lg:w-1/3">
+                  <a
+                    href={project.name === "Sosyal Medya Tasarımları" ? "/portfolioInsta" : "/projects"}
+                    className="inline-block bg-[#222] text-white px-6 py-3 rounded-lg hover:bg-[#333] transition duration-300"
+                  >
+                    Tüm {project.name === "Sosyal Medya Tasarımları" ? "Tasarımlar" : "Projeler"}
+                  </a>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-6 sm:py-12 rounded-3xl mt-2">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="scrollbar-hide mt-14 flex w-full snap-x snap-mandatory scroll-px-10 gap-10 overflow-x-scroll scroll-smooth px-10">
-                {project.carousel.map((image, index) => (
-                  <div
-                    key={index}
-                    className="md:2/3 relative aspect-[2/3] w-[90%] shrink-0 snap-start snap-always rounded-xl bg-orange-100 sm:w-[44%] md:w-[30%]"
-                  >
-                    <img
-                      src={image.image}
-                      alt="image"
-                      className="h-full w-full rounded-xl object-cover"
-                    />
-                  </div>
-                ))}
+              <div className="relative mt-8">
+                <div
+                  ref={(el) => (scrollRefs.current[index] = el)}
+                  className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-6 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
+                >
+                  {project.carousel.map((item, imgIndex) => (
+                    <motion.div
+                      key={imgIndex}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: imgIndex * 0.1, duration: 0.5 }}
+                      className="min-w-[320px] sm:min-w-[350px] snap-center"
+                    >
+                      <div className="card bg-[#222] rounded-lg shadow-lg p-6 hover:shadow-gray-800 transition-shadow">
+                        <div className="bg-[#444444] rounded-md border border-gray-700">
+                          <Image
+                            src={item.image}
+                            alt={item.alt}
+                            width={500}
+                            height={500}
+                            className="w-full h-[250px] object-contain rounded-md"
+                            placeholder="blur"
+                            blurDataURL="/placeholder.png"
+                          />
+                        </div>
+                        <h3 className="text-xl font-semibold mt-4">{item.alt}</h3>
+                        <p className="text-sm text-gray-400 mt-2">
+                          {project.name === "Sosyal Medya Tasarımları"
+                            ? `${item.alt} için özel olarak tasarlanmış sosyal medya içeriği`
+                            : project.description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => scrollLeft(index)}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition opacity-75 hover:opacity-100"
+                  aria-label="Önceki projeyi göster"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={() => scrollRight(index)}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition opacity-75 hover:opacity-100"
+                  aria-label="Sonraki projeyi göster"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
             </div>
+          </motion.div>
+        ))}
+
+        {/* Footer */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-12 rounded-3xl mx-4 mt-6 mb-8"
+        >
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Bana Ulaşın</h2>
+            <p className="text-lg text-gray-300 mb-8">
+              Projelerim, tasarımlarım ve daha fazlası için sosyal medya hesaplarımı ziyaret edin veya iletişime geçin.
+            </p>
+            <div className="flex justify-center gap-8">
+              <motion.a
+                href="https://www.instagram.com/gencmerttr/"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-300 hover:text-cyan-400 transition"
+                aria-label="Instagram hesabım"
+              >
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </motion.a>
+              <motion.a
+                href="https://www.youtube.com/@gencmerttr"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-300 hover:text-cyan-400 transition"
+                aria-label="YouTube kanalım"
+              >
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/mertgenc/"
+                target="_blank"
+                rel="noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-300 hover:text-cyan-400 transition"
+                aria-label="LinkedIn profilim"
+              >
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9.004h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.282zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9.004h3.564v11.448zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </motion.a>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        </motion.div>
+      </div>
+    </>
   );
-}
+};
+
+export default Hero;
