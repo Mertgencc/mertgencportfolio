@@ -3,6 +3,18 @@ import Head from "next/head";
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
+
+      <Head>
+        <title>Mert Genç - Full Stack Developer</title>
+        <meta name="description" content="Mert Genç full stack developer portföy sitesi" />
+        <meta name="keywords" content="portföy, portfolio, portfolyo, full stack, developer, mert genç, üniversite" />
+        <meta property="og:title" content="Full Stack Developer" />
+        <meta property="og:description" content="Full Stack Developer" />
+        <meta name="robots" content="index, follow" /> {/* Arama motorlarının sayfayı indekslemesi için */}
+      </Head>
+      {/* Diğer içerikler */}
+
+
 interface CarouselItem {
   image: string;
   alt: string;
