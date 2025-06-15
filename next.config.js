@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  images: {
-    domains: ['pbs.twimg.com', 'storage.googleapis.com'],
-  },
+  // Eski hatalı config:
+  // experimental: { appDir: true }
+  
+  // Yeni doğru config:
+  appDir: true
 }
 
 module.exports = nextConfig
+
+
