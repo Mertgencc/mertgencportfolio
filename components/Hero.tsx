@@ -549,7 +549,7 @@ const Hero: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.youtube.com/@gencmerttr"
+                href="https://www.youtube.com/@mertgencc"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -561,7 +561,7 @@ const Hero: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/mertgenc/"
+                href="https://www.linkedin.com/in/mertgencc/"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.1 }}
