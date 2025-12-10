@@ -533,7 +533,7 @@ const Hero: React.FC = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Bana Ulaşın</h2>
             <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
-              Projelerim, tasarımlarım ve daha fazlası için sosyal medya hesaplarımı ziyaret edin veya iletişime geçin.
+              Projelerim, tasarımlarımı ve daha fazlası için sosyal medya hesaplarımı ziyaret edin veya iletişime geçin.
             </p>
             <div className="flex justify-center gap-4 sm:gap-8">
               <motion.a
@@ -561,7 +561,7 @@ const Hero: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/mertgencc/"
+                href="https://www.linkedin.com/in/mertgenc/"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.1 }}
