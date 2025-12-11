@@ -33,7 +33,7 @@ interface Project {
 const projects: Project[] = [
   {
     name: "Blog Yazılarım",
-    description: "Fuarlar, Sempozyumlar ve Ödül Törenleri",
+    description: "Fuarlar, Sempozyumlar ve Ödül Törenlerim",
     stack: "Bilişim Sistemleri ve Teknolojileri lisans programında öğrenim görüyorum. Bazı önemli projelerime GitHub hesabımdan ulaşabilirsiniz.",
     badges: [
       { name: "Kuzey Doğu Anadolu Career Fair" },
