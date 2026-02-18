@@ -3,17 +3,24 @@ import Head from "next/head";
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
-
-      <Head>
-        <title>Mert Genç - Full Stack Developer</title>
-        <meta name="description" content="Mert Genç full stack developer portföy sitesi" />
-        <meta name="keywords" content="portföy, portfolio, portfolyo, full stack, developer, mert genç, üniversite" />
-        <meta property="og:title" content="Full Stack Developer" />
-        <meta property="og:description" content="Full Stack Developer" />
-        <meta name="robots" content="index, follow" /> {/* Arama motorlarının sayfayı indekslemesi için */}
-      </Head>
-      {/* Diğer içerikler */}
-
+<Head>
+  <title>Mert Genç - Full Stack Developer</title>
+  <meta
+    name="description"
+    content="Mert Genç full stack developer portföy sitesi"
+  />
+  <meta
+    name="keywords"
+    content="portföy, portfolio, portfolyo, full stack, developer, mert genç, üniversite"
+  />
+  <meta property="og:title" content="Full Stack Developer" />
+  <meta property="og:description" content="Full Stack Developer" />
+  <meta name="robots" content="index, follow" />{" "}
+  {/* Arama motorlarının sayfayı indekslemesi için */}
+</Head>;
+{
+  /* Diğer içerikler */
+}
 
 interface CarouselItem {
   image: string;
@@ -32,80 +39,101 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Blog Yazılarım",
-    description: "Fuarlar, Sempozyumlar ve Ödül Törenlerim",
-    stack: "Bilişim Sistemleri ve Teknolojileri lisans programında öğrenim görüyorum. Bazı önemli projelerime GitHub hesabımdan ulaşabilirsiniz.",
+    name: "Akademik Vizyon & Sektörel Network",
+    description:
+      "Bilişim Sistemleri ve Teknolojileri alanında akademik temsil ve saha deneyimi.",
+    stack:
+      "Teorik altyapıyı; bölge fuarları (KUDAKAF), akademik sempozyumlar ve profesyonel ağ yönetimi ile birleştirerek sektörel adaptasyon sağlıyorum.",
     badges: [
-      { name: "Kuzey Doğu Anadolu Career Fair" },
-      { name: "Atatürk University" },
-      { name: "Symposiums" },
-      { name: "Full Stack Web Developer" },
-      { name: "Back End Developer" },
-      { name: "Front End Developer" },
+      { name: "Kuzey Doğu Anadolu Kariyer Fuarı" },
+      { name: "Akademik Sunum" },
+      { name: "Professional Networking" },
+      { name: "Technical Documentation" },
+      { name: "Community Management" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/Füme ve Beyaz Modern Dinamik Ürün Tanıtım Instagram Reels Videosu.png", alt: "Kariyer Fuarı Gönderisi" },
-      { image: "/WhatsApp Görsel 2024-05-09 saat 16.04.18_6d38ec37.jpg", alt: "Sempozyum Gönderisi" },
-      { image: "/WhatsApp Görsel 2024-05-09 saat 16.09.45_a4bd71a8.jpg", alt: "Ödül Töreni Gönderisi" },
+      {
+        image:
+          "/Füme ve Beyaz Modern Dinamik Ürün Tanıtım Instagram Reels Videosu.png",
+        alt: "KUDAKAF'24 Etkinlik Görseli",
+      },
+      {
+        image: "/WhatsApp Görsel 2024-05-09 saat 16.04.18_6d38ec37.jpg",
+        alt: "Sempozyum Sunum Süreci",
+      },
+      {
+        image: "/WhatsApp Görsel 2024-05-09 saat 16.09.45_a4bd71a8.jpg",
+        alt: "Akademik Başarı Sertifikasyonu",
+      },
     ],
   },
   {
-    name: "Eğitim & Yazılım Projelerim",
-    description: "Atatürk Üniversitesi Bilişim Sistemleri ve Teknolojileri",
-    stack: "Next.js, TailwindCSS ve modern teknolojilerle projeler geliştiriyorum. Detaylar için GitHub hesabıma göz atın.",
+    name: "Software Development & IoT",
+    description:
+      "Next.js tabanlı modern web mimarileri ve gömülü sistem prototipleme.",
+    stack:
+      "React ekosistemi (Next.js, TailwindCSS) ile kullanıcı deneyimi yüksek arayüzler ve Arduino platformu ile donanım-yazılım entegrasyonu geliştiriyorum.",
     badges: [
-      { name: "Next.js" },
+      { name: "Next.js 14" },
+      { name: "TypeScript" },
       { name: "TailwindCSS" },
       { name: "OpenAI API" },
-      { name: "Vercel" },
+      { name: "Arduino / IoT" },
+      { name: "Vercel Deployment" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/arduino.png", alt: "Arduino Projesi" },
-      { image: "/bootstrap.jpg", alt: "Bootstrap Web Projesi" },
-      { image: "/tinkercad.jpg", alt: "Tinkercad Devresi" },
-      { image: "/vs.jpg", alt: "Web Kodlama" },
+      { image: "/vs.jpg", alt: "Full Stack Kod Geliştirme Süreci" },
+      { image: "/arduino.png", alt: "IoT Devre Tasarımı ve Kodlama" },
+      { image: "/bootstrap.jpg", alt: "Responsive Web Arayüzü" },
+      { image: "/tinkercad.jpg", alt: "Donanım Simülasyonu" },
     ],
   },
   {
-    name: "Grafik Tasarım & Modelleme",
-    description: "Blender ve Capcut ile yaratıcı tasarımlar ve 3D modellemeler.",
-    stack: "Sosyal medya için görsel içerikler üretiyorum. Daha fazlası için sosyal medya hesaplarımı ziyaret edin.",
+    name: "Creative Design & 3D Modeling",
+    description:
+      "Blender ile 3D görselleştirme ve profesyonel post-prodüksiyon çözümleri.",
+    stack:
+      "Teknik projelerin dijital ikizlerini ve tanıtım materyallerini; Blender (modelleme/render) ve CapCut (video kurgu) araçlarıyla optimize ediyorum.",
     badges: [
-      { name: "Blender" },
-      { name: "Capcut" },
+      { name: "Blender 3D" },
+      { name: "3D Rendering" },
       { name: "Adobe Photoshop" },
-      { name: "Social Media" },
+      { name: "Video Post-Production" },
+      { name: "CapCut" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/blender (1).png", alt: "Blender Tasarımı 1" },
-      { image: "/blender (1)2.png", alt: "Blender Tasarımı 2" },
-      { image: "/capcut.png", alt: "Capcut Tasarımı" },
-      { image: "/ardunio.png", alt: "Arduino Tasarımı" },
+      { image: "/blender (1).png", alt: "3D Obje Render Çalışması" },
+      { image: "/blender (1)2.png", alt: "3D Sahne Tasarımı" },
+      { image: "/capcut.png", alt: "Dinamik Video İçerik Üretimi" },
+      { image: "/ardunio.png", alt: "Teknik Ürün Modelleme" },
     ],
   },
   {
-    name: "Sosyal Medya Tasarımları",
-    description: "Instagram'da paylaştığım yaratıcı tasarımlar ve projeler.",
-    stack: "Yazılım ve tasarım içeriklerimi YouTube ve Instagram'da paylaşıyorum.",
+    name: "Branding & Content Strategy",
+    description:
+      "Dijital platformlar için kurumsal kimlik ve kreatif görsel tasarım.",
+    stack:
+      "Sosyal medya ekosistemi için marka diline uygun görsel stratejiler geliştiriyor, estetik ve fonksiyonelliği ön planda tutan tasarımlar üretiyorum.",
     badges: [
-      { name: "Instagram" },
-      { name: "YouTube" },
-      { name: "LinkedIn" },
-      { name: "Social Media" },
+      { name: "Visual Identity" },
+      { name: "Digital Branding" },
+      { name: "Social Media Strategy" },
+      { name: "Graphic Design" },
+      { name: "UI/UX Principles" },
     ],
     link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/GÜÇLÜ (1).png", alt: "Kozmetik Konulu Tasarım" },
-      { image: "/göster.png", alt: "Şık ve Sade Tasarım" },
-      { image: "/Zarafet.png", alt: "Pırlanta Tanıtımı" },
-      { image: "/MYSTERY.png", alt: "Korku Filmi Afişi" },
+      { image: "/GÜÇLÜ (1).png", alt: "Ticari Ürün Branding Çalışması" },
+      { image: "/göster.png", alt: "Minimalist Tipografi Tasarımı" },
+      { image: "/Zarafet.png", alt: "Premium Tanıtım Kartı" },
+      { image: "/MYSTERY.png", alt: "Kreatif Afiş Konsepti" },
     ],
   },
 ];
@@ -127,9 +155,15 @@ const Hero: React.FC = () => {
     <>
       <Head>
         <title>Mert Genç - Full-Stack Developer Portfolio</title>
-        <meta name="description" content="Mert Genç'in yazılım, grafik tasarım ve sosyal medya projelerini keşfedin. Next.js, TailwindCSS ve modern teknolojilerle geliştirilen kullanıcı dostu projeler." />
+        <meta
+          name="description"
+          content="Mert Genç'in yazılım, grafik tasarım ve sosyal medya projelerini keşfedin. Next.js, TailwindCSS ve modern teknolojilerle geliştirilen kullanıcı dostu projeler."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="keywords" content="Mert Genç, Full-Stack Developer, Next.js, TailwindCSS, Instagram Designs, Portfolio" />
+        <meta
+          name="keywords"
+          content="Mert Genç, Full-Stack Developer, Next.js, TailwindCSS, Instagram Designs, Portfolio"
+        />
         <meta name="author" content="Mert Genç" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -148,13 +182,16 @@ const Hero: React.FC = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 sm:mb-6"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-3xl font-extrabold tracking-tight text-white mb-4 sm:mb-6"
                 >
-                  Merhaba, ben <span className="text-cyan-400">Mert</span> <br className="hidden sm:block" />
-                  Full-Stack Developer
+                  Merhabalar, ben <span className="text-cyan-400">Mert Genç</span>{" "}
+                  <br className="hidden sm:block" />
+                  Software Developer
                 </motion.h1>
                 <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
-                  Modern web teknolojileriyle kullanıcı dostu projeler geliştiriyorum. Yazılım, grafik tasarım ve sosyal medya içerik üretimiyle dijital dünyada fark yaratıyorum.
+                  Modern web teknolojileriyle kullanıcı dostu projeler
+                  geliştiriyorum. Yazılım, grafik tasarım ve sosyal medya içerik
+                  üretimiyle dijital dünyada fark yaratıyorum.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4">
                   <motion.a
@@ -184,14 +221,16 @@ const Hero: React.FC = () => {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="mt-6 sm:mt-10 md:mt-0 md:w-1/2 flex justify-center order-1 md:order-2"
               >
-                <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[400px]">
+                <div className="relative w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] lg:w-[280px] lg:h-[280px] rounded-full overflow-hidden border border-white/5 shadow-2xl">
                   <Image
                     src="/WhatsApp Görsel 2025-06-13 saat 20.15.32_b9c7b784.jpg"
-                    alt="Mert Genç - Profil Fotoğrafı"
+                    alt="Mert Genç"
                     fill
-                    className="rounded-xl border border-gray-700 shadow-xl hover:shadow-gray-800 transition-shadow object-cover"
+                    className="object-cover grayscale-[40%] hover:grayscale-0 transition-all duration-500"
                     priority
                   />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
               </motion.div>
             </section>
@@ -391,9 +430,15 @@ const Hero: React.FC = () => {
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col lg:flex-row justify-between items-start gap-6 sm:gap-8">
                 <div className="w-full lg:w-2/3">
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">{project.name}</h2>
-                  <p className="text-base sm:text-lg text-gray-300 mb-3 sm:mb-4">{project.description}</p>
-                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">{project.stack}</p>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
+                    {project.name}
+                  </h2>
+                  <p className="text-base sm:text-lg text-gray-300 mb-3 sm:mb-4">
+                    {project.description}
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
+                    {project.stack}
+                  </p>
                   <div className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                     {project.badges.map((badge, badgeIndex) => (
                       <motion.span
@@ -461,10 +506,17 @@ const Hero: React.FC = () => {
 
                 <div className="w-full lg:w-1/3 mt-4 sm:mt-0">
                   <a
-                    href={project.name === "Sosyal Medya Tasarımları" ? "/portfolioInsta" : "/projects"}
+                    href={
+                      project.name === "Sosyal Medya Tasarımları"
+                        ? "/portfolioInsta"
+                        : "/projects"
+                    }
                     className="inline-block w-full text-center bg-[#222] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-[#333] transition duration-300 text-sm sm:text-base"
                   >
-                    Tüm {project.name === "Sosyal Medya Tasarımları" ? "Tasarımlar" : "Projeler"}
+                    Tüm{" "}
+                    {project.name === "Sosyal Medya Tasarımları"
+                      ? "Tasarımlar"
+                      : "Projeler"}
                   </a>
                 </div>
               </div>
@@ -490,7 +542,9 @@ const Hero: React.FC = () => {
                             className="object-contain p-2"
                           />
                         </div>
-                        <h3 className="text-lg sm:text-xl font-semibold mt-3 sm:mt-4">{item.alt}</h3>
+                        <h3 className="text-lg sm:text-xl font-semibold mt-3 sm:mt-4">
+                          {item.alt}
+                        </h3>
                         <p className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2">
                           {project.name === "Sosyal Medya Tasarımları"
                             ? `${item.alt} için özel olarak tasarlanmış sosyal medya içeriği`
@@ -505,8 +559,18 @@ const Hero: React.FC = () => {
                   className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 sm:p-3 rounded-full hover:bg-gray-700 transition opacity-75 hover:opacity-100"
                   aria-label="Önceki projeyi göster"
                 >
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="w-4 h-4 sm:w-5 sm:h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
                 <button
@@ -514,8 +578,18 @@ const Hero: React.FC = () => {
                   className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 sm:p-3 rounded-full hover:bg-gray-700 transition opacity-75 hover:opacity-100"
                   aria-label="Sonraki projeyi göster"
                 >
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-4 h-4 sm:w-5 sm:h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>
@@ -531,9 +605,12 @@ const Hero: React.FC = () => {
           className="bg-[#111] bg-opacity-80 backdrop-blur-xl py-8 sm:py-12 rounded-3xl mx-2 sm:mx-4 mt-4 sm:mt-6 mb-4 sm:mb-8"
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Bana Ulaşın</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
+              Bana Ulaşın
+            </h2>
             <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8">
-              Projelerim, tasarımlarımı ve daha fazlası için sosyal medya hesaplarımı ziyaret edin veya iletişime geçin.
+              Projelerim, tasarımlarımı ve daha fazlası için sosyal medya
+              hesaplarımı ziyaret edin veya iletişime geçin.
             </p>
             <div className="flex justify-center gap-4 sm:gap-8">
               <motion.a
@@ -544,8 +621,12 @@ const Hero: React.FC = () => {
                 className="text-gray-300 hover:text-cyan-400 transition"
                 aria-label="Instagram hesabım"
               >
-                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                <svg
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
               </motion.a>
               <motion.a
@@ -556,8 +637,12 @@ const Hero: React.FC = () => {
                 className="text-gray-300 hover:text-cyan-400 transition"
                 aria-label="YouTube kanalım"
               >
-                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                <svg
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                 </svg>
               </motion.a>
               <motion.a
@@ -568,8 +653,12 @@ const Hero: React.FC = () => {
                 className="text-gray-300 hover:text-cyan-400 transition"
                 aria-label="LinkedIn profilim"
               >
-                <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9.004h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.282zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9.004h3.564v11.448zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <svg
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9.004h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.282zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9.004h3.564v11.448zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
               </motion.a>
             </div>

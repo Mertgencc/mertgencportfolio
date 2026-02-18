@@ -1,9 +1,8 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 
-// TypeScript interface for links
 interface NavLink {
   label: string;
   href: string;
@@ -12,11 +11,7 @@ interface NavLink {
 
 const links: NavLink[] = [
   { label: "Instagram", href: "https://www.instagram.com/gencmerttr", isExternal: true },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
-    isExternal: true,
-  },
+  { label: "YouTube", href: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5", isExternal: true },
   { label: "GitHub", href: "https://github.com/Mertgencc", isExternal: true },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/", isExternal: true },
   { label: "Projeler", href: "/projects", isExternal: false },
@@ -25,200 +20,62 @@ const links: NavLink[] = [
 
 const NavLinks: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
-
-  // Close mobile menu when clicking outside
-  const handleCloseMenu = () => setIsOpen(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-[#111] bg-opacity-80 backdrop-blur-xl py-4">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Desktop View */}
-        <div className="hidden md:flex justify-center gap-4">
-          {links.map(({ label, href, isExternal }, index) => {
-            const commonProps = {
-              className:
-                "relative flex items-center gap-2 rounded-lg px-4 py-2 text-base font-medium text-gray-300 transition-colors hover:text-white",
-              onMouseEnter: () => setHoveredIndex(index),
-              onMouseLeave: () => setHoveredIndex(null),
-            };
+    <div className="flex items-center gap-1 p-1 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl">
+      {links.map((link, index) => {
+        const isInternal = !link.isExternal;
+        const Component = isInternal ? Link : "a";
+        const extraProps = link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
-            const content = (
-              <>
-                <AnimatePresence>
-                  {hoveredIndex === index && (
-                    <motion.span
-                      className={`absolute inset-0 rounded-lg ${
-                        label === "Tasarımlar" ? "bg-[#444444]" : "bg-cyan-500/20"
-                      }`}
-                      layoutId="hoverBackground"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1, transition: { duration: 0.15 } }}
-                      exit={{ opacity: 0, transition: { duration: 0.15, delay: 0.2 } }}
-                    />
-                  )}
-                </AnimatePresence>
-                <span className="relative z-10 flex items-center gap-2">
-                  {renderIcon(label)}
-                  {label}
-                </span>
-              </>
-            );
-
-            return isExternal ? (
-              <a
-                key={`${label}-${index}`}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                {...commonProps}
-                aria-label={`${label} sayfasına git (yeni sekme)`}
-              >
-                {content}
-              </a>
-            ) : (
-              <Link 
-                key={`${label}-${index}`} 
-                href={href} 
-                {...commonProps}
-                aria-label={`${label} sayfasına git`}
-              >
-                {content}
-              </Link>
-            );
-          })}
-        </div>
-
-        {/* Mobile View */}
-        <div className="md:hidden relative">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="w-full px-4 py-2 bg-[#222] text-white rounded-lg text-base font-medium flex items-center justify-between"
-            aria-expanded={isOpen}
-            aria-label="Navigasyon menüsünü aç/kapat"
-            aria-controls="mobile-menu"
+        return (
+          <Component
+            key={link.label}
+            href={link.href}
+            {...extraProps}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className="relative flex items-center gap-2 px-4 py-2 text-[11px] font-bold uppercase tracking-wider transition-all duration-300"
           >
-            Menü
-            <motion.svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </motion.svg>
-          </button>
-
-          <AnimatePresence>
-            {isOpen && (
-              <>
-                {/* Overlay */}
-                <motion.div
-                  className="fixed inset-0 bg-black bg-opacity-50 z-40"
+            <span className="relative z-10 flex items-center gap-2">
+              {/* SVG İkonları */}
+              <div className={`transition-transform duration-300 ${hoveredIndex === index ? 'scale-110 text-cyan-400' : 'text-gray-400'}`}>
+                {renderIcon(link.label)}
+              </div>
+              <span className={hoveredIndex === index ? 'text-white' : 'text-gray-400'}>
+                {link.label}
+              </span>
+            </span>
+            
+            <AnimatePresence>
+              {hoveredIndex === index && (
+                <motion.span
+                  layoutId="navHoverBlock"
+                  className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl border-t border-white/10"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  onClick={handleCloseMenu}
-                  aria-hidden="true"
                 />
-
-                {/* Dropdown Menu */}
-                <motion.div
-                  id="mobile-menu"
-                  className="absolute left-0 right-0 mt-2 bg-[#111] bg-opacity-95 backdrop-blur-xl rounded-lg shadow-lg z-50 p-2"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {links.map(({ label, href, isExternal }, index) => (
-                    <motion.div
-                      key={`mobile-${label}-${index}`}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="px-3 py-2"
-                    >
-                      {isExternal ? (
-                        <a
-                          href={href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-3 px-3 py-2 text-base font-medium text-gray-300 hover:bg-[#444444] hover:text-white rounded-md transition-colors"
-                          onClick={handleCloseMenu}
-                          aria-label={`${label} sayfasına git (yeni sekme)`}
-                        >
-                          {renderIcon(label)}
-                          {label}
-                        </a>
-                      ) : (
-                        <Link
-                          href={href}
-                          className="flex items-center gap-3 px-3 py-2 text-base font-medium text-gray-300 hover:bg-[#444444] hover:text-white rounded-md transition-colors"
-                          onClick={handleCloseMenu}
-                          aria-label={`${label} sayfasına git`}
-                        >
-                          {renderIcon(label)}
-                          {label}
-                        </Link>
-                      )}
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </>
-            )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </nav>
+              )}
+            </AnimatePresence>
+          </Component>
+        );
+      })}
+    </div>
   );
 };
 
-// Helper function to render icons based on link label
+// İkonları doğrudan içine gömdük (Hata riskini sıfırladık)
 const renderIcon = (label: string) => {
-  const iconClass = "w-5 h-5 flex-shrink-0";
-  const iconProps = { className: iconClass, "aria-hidden": true };
-
+  const props = { className: "w-4 h-4" };
   switch (label) {
-    case "Instagram":
-      return (
-        <svg {...iconProps} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-        </svg>
-      );
-    case "YouTube":
-      return (
-        <svg {...iconProps} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
-      );
-    case "GitHub":
-      return (
-        <svg {...iconProps} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.776.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.304-.536-1.527.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.649.242 2.872.118 3.176.769.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-        </svg>
-      );
-    case "LinkedIn":
-      return (
-        <svg {...iconProps} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.852 0-2.136 1.447-2.136 2.941v5.665H9.352V9.004h3.414v1.561h.048c.477-.9 1.638-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.282zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9.004h3.564v11.448zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-        </svg>
-      );
-    case "Projeler":
-      return (
-        <svg {...iconProps} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M7 7h10v10H7V7zm2 2H5v10h14V9h-4V5H5v2h4v2zm6 2h2v2h-2v-2zm0 4h2v2h-2v-2z" />
-        </svg>
-      );
-    case "Tasarımlar":
-      return (
-        <svg {...iconProps} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.708 2.292a1 1 0 0 0-1.414 0L12 8.586 5.706 2.292a1 1 0 0 0-1.414 1.414L10.586 10l-6.294 6.294a1 1 0 1 0 1.414 1.414L12 11.414l6.294 6.294a1 1 0 0 0 1.414-1.414L13.414 10l6.294-6.294a1 1 0 0 0 0-1.414z" />
-        </svg>
-      );
-    default:
-      return null;
+    case "Instagram": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>;
+    case "YouTube": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>;
+    case "GitHub": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
+    case "LinkedIn": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
+    case "Projeler": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>;
+    case "Tasarımlar": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M7.63 7.63L22 22"></path></svg>;
+    default: return null;
   }
 };
 
