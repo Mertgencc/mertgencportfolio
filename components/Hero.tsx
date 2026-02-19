@@ -86,10 +86,9 @@ const projects: Project[] = [
     link: "https://www.youtube.com/@mertgencc",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/vs.jpg", alt: "Full Stack Kod Geliştirme Süreci" },
-      { image: "/arduino.png", alt: "IoT Devre Tasarımı ve Kodlama" },
-      { image: "/bootstrap.jpg", alt: "Responsive Web Arayüzü" },
-      { image: "/tinkercad.jpg", alt: "Donanım Simülasyonu" },
+      { image: "/PORTFOLİO SİTE (1).png", alt: "Full Stack Kod Geliştirme Süreci" },
+      { image: "/PORTFOLİO SİTE (2).png", alt: "IoT Devre Tasarımı ve Kodlama" },
+      { image: "/PORTFOLİO SİTE (3).png", alt: "Responsive Web Arayüzü" },
     ],
   },
   {

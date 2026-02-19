@@ -11,7 +11,7 @@ interface NavLink {
 
 const links: NavLink[] = [
   { label: "Instagram", href: "https://www.instagram.com/gencmerttr", isExternal: true },
-  { label: "YouTube", href: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5", isExternal: true },
+  { label: "YouTube", href: "https://www.youtube.com/@mertgencc", isExternal: true },
   { label: "GitHub", href: "https://github.com/Mertgencc", isExternal: true },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/", isExternal: true },
   { label: "Projeler", href: "/projects", isExternal: false },
