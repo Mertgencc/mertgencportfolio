@@ -22,7 +22,7 @@ const NavLinks: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div className="flex items-center gap-1 p-1 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-xl">
+    <div className="flex items-center gap-0 bg-white/[0.02] border border-white/10 rounded-none backdrop-blur-3xl relative">
       {links.map((link, index) => {
         const isInternal = !link.isExternal;
         const Component = isInternal ? Link : "a";
@@ -35,29 +35,24 @@ const NavLinks: React.FC = () => {
             {...extraProps}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-            className="relative flex items-center gap-2 px-4 py-2 text-[11px] font-bold uppercase tracking-wider transition-all duration-300"
+            className="relative flex items-center gap-2 px-5 py-2.5 transition-all duration-300 border-r border-white/5 last:border-r-0"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              {/* SVG İkonları */}
-              <div className={`transition-transform duration-300 ${hoveredIndex === index ? 'scale-110 text-cyan-400' : 'text-gray-400'}`}>
+            <span className="relative z-10 flex items-center gap-2.5">
+              <div className={`transition-all duration-300 ${hoveredIndex === index ? 'text-cyan-400' : 'text-gray-500'}`}>
                 {renderIcon(link.label)}
               </div>
-              <span className={hoveredIndex === index ? 'text-white' : 'text-gray-400'}>
+              <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-300 ${hoveredIndex === index ? 'text-white' : 'text-gray-500'}`}>
                 {link.label}
               </span>
             </span>
             
-            <AnimatePresence>
-              {hoveredIndex === index && (
-                <motion.span
-                  layoutId="navHoverBlock"
-                  className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-xl border-t border-white/10"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                />
-              )}
-            </AnimatePresence>
+            {hoveredIndex === index && (
+              <motion.span
+                layoutId="navHover"
+                className="absolute inset-0 bg-white/[0.05] rounded-none border-b-2 border-cyan-500"
+                transition={{ type: "spring", bounce: 0, duration: 0.3 }}
+              />
+            )}
           </Component>
         );
       })}
@@ -65,9 +60,8 @@ const NavLinks: React.FC = () => {
   );
 };
 
-// İkonları doğrudan içine gömdük (Hata riskini sıfırladık)
 const renderIcon = (label: string) => {
-  const props = { className: "w-4 h-4" };
+  const props = { className: "w-3.5 h-3.5" };
   switch (label) {
     case "Instagram": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>;
     case "YouTube": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>;

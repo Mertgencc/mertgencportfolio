@@ -39,7 +39,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Akademik Vizyon & Sektörel Network",
+    name: "Strategic & Professional",
     description:
       "Bilişim Sistemleri ve Teknolojileri alanında akademik temsil ve saha deneyimi.",
     stack:
@@ -51,7 +51,7 @@ const projects: Project[] = [
       { name: "Technical Documentation" },
       { name: "Community Management" },
     ],
-    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    link: "https://www.youtube.com/@mertgencc",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       {
@@ -83,7 +83,7 @@ const projects: Project[] = [
       { name: "Arduino / IoT" },
       { name: "Vercel Deployment" },
     ],
-    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    link: "https://www.youtube.com/@mertgencc",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       { image: "/vs.jpg", alt: "Full Stack Kod Geliştirme Süreci" },
@@ -105,7 +105,7 @@ const projects: Project[] = [
       { name: "Video Post-Production" },
       { name: "CapCut" },
     ],
-    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    link: "https://www.youtube.com/@mertgencc",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       { image: "/blender (1).png", alt: "3D Obje Render Çalışması" },
@@ -127,7 +127,7 @@ const projects: Project[] = [
       { name: "Graphic Design" },
       { name: "UI/UX Principles" },
     ],
-    link: "https://www.youtube.com/playlist?list=PLOhpmfpRm_QkIMr8jH6SP-Vyzn6p3YHU5",
+    link: "https://www.youtube.com/@mertgencc",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       { image: "/GÜÇLÜ (1).png", alt: "Ticari Ürün Branding Çalışması" },
@@ -646,7 +646,7 @@ const Hero: React.FC = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://www.linkedin.com/in/mertgenc/"
+                href="https://www.linkedin.com/in/mertgencc/"
                 target="_blank"
                 rel="noreferrer"
                 whileHover={{ scale: 1.1 }}
