@@ -4,14 +4,14 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 <Head>
-  <title>Mert Genç - Full Stack Developer</title>
+  <title>Mert Genç - Software Developer And Designer</title>
   <meta
     name="description"
     content="Mert Genç full stack developer portföy sitesi"
   />
   <meta
     name="keywords"
-    content="portföy, portfolio, portfolyo, full stack, developer, mert genç, üniversite"
+    content="portföy, portfolio, portfolyo, full stack, developer, mert genç, üniversite, Mert Genç, Yazılım, yazılım, Sofware, Developer, Software Developer, Design, Tasarım, Designer, Tasarımcı"
   />
   <meta property="og:title" content="Full Stack Developer" />
   <meta property="og:description" content="Full Stack Developer" />
