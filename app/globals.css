@@ -4,7 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
+html, body {
+  background-color: #030303 !important; /* Koyu mod rengin */
+  margin: 0;
+  padding: 0;
+  color-scheme: dark; /* Tarayıcıya bu sayfanın karanlık olduğunu söyler */
+}
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
