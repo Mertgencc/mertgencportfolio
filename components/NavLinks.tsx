@@ -28,18 +28,18 @@ const NavLinks: React.FC = () => {
       {/* MOBİL HAMBURGER BUTONU */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white flex items-center gap-2"
+        className="lg:hidden p-2.5 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white flex items-center gap-2 hover:bg-cyan-500/10 transition-colors"
       >
-        <div className="flex flex-col gap-1 w-4">
-          <span className={`h-0.5 w-full bg-current transition-all ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-          <span className={`h-0.5 w-full bg-current transition-all ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`h-0.5 w-full bg-current transition-all ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+        <div className="flex flex-col gap-1 w-5">
+          <span className={`h-0.5 w-full bg-current transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+          <span className={`h-0.5 w-full bg-current transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`h-0.5 w-full bg-current transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
         </div>
-        <span className="text-[10px] font-black uppercase tracking-widest">Menü</span>
+        <span className="text-[9px] font-black uppercase tracking-[0.2em]">Menü</span>
       </button>
 
       {/* MASAÜSTÜ NAV */}
-      <div className="hidden lg:flex items-center gap-0 bg-black/[0.02] dark:bg-white/[0.02] border border-black/10 dark:border-white/10 rounded-none backdrop-blur-3xl">
+      <div className="hidden lg:flex items-center gap-0 bg-black/[0.02] dark:bg-white/[0.02] border border-black/10 dark:border-white/10 backdrop-blur-3xl">
         {links.map((link, index) => {
           const Component = !link.isExternal ? Link : "a";
           const extraProps = link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {};
@@ -54,29 +54,29 @@ const NavLinks: React.FC = () => {
               className="relative flex items-center gap-2 px-5 py-2.5 border-r border-black/5 dark:border-white/5 last:border-r-0"
             >
               <span className="relative z-10 flex items-center gap-2">
-                <div className={`${hoveredIndex === index ? 'text-cyan-500' : 'text-gray-400'}`}>
+                <div className={`transition-colors duration-300 ${hoveredIndex === index ? 'text-cyan-500' : 'text-gray-400'}`}>
                   {renderIcon(link.label)}
                 </div>
-                <span className={`text-[10px] font-black uppercase tracking-widest ${hoveredIndex === index ? 'text-black dark:text-white' : 'text-gray-400'}`}>
+                <span className={`text-[10px] font-black uppercase tracking-widest transition-colors duration-300 ${hoveredIndex === index ? 'text-black dark:text-white' : 'text-gray-400'}`}>
                   {link.label}
                 </span>
               </span>
               {hoveredIndex === index && (
-                <motion.span layoutId="navHover" className="absolute inset-0 bg-black/5 dark:bg-white/5 border-b-2 border-cyan-500" />
+                <motion.span layoutId="navHover" className="absolute inset-0 bg-black/5 dark:bg-white/5 border-b-2 border-cyan-500" transition={{ type: "spring", bounce: 0, duration: 0.3 }} />
               )}
             </Component>
           );
         })}
       </div>
 
-      {/* MOBİL AÇILIR MENÜ */}
+      {/* MOBİL AÇILIR MENÜ (ARKA PLAN DÜZELTİLDİ) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="absolute top-full right-0 mt-4 w-64 bg-white dark:bg-[#080808] border border-black/10 dark:border-white/10 shadow-2xl lg:hidden overflow-hidden"
+            className="absolute top-full right-0 mt-4 w-64 bg-white dark:bg-[#0A0A0A] border border-black/10 dark:border-white/10 shadow-2xl lg:hidden overflow-hidden backdrop-blur-xl"
           >
             {links.map((link) => {
               const Component = !link.isExternal ? Link : "a";
@@ -85,10 +85,10 @@ const NavLinks: React.FC = () => {
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 px-6 py-4 border-b border-black/5 dark:border-white/5 hover:bg-cyan-500/5 transition-colors"
+                  className="flex items-center gap-4 px-6 py-4 border-b border-black/5 dark:border-white/5 hover:bg-cyan-500/10 transition-colors group"
                 >
-                  <div className="text-cyan-500">{renderIcon(link.label)}</div>
-                  <span className="text-[10px] font-black uppercase text-black dark:text-white tracking-widest">{link.label}</span>
+                  <div className="text-gray-400 group-hover:text-cyan-500 transition-colors">{renderIcon(link.label)}</div>
+                  <span className="text-[10px] font-black uppercase text-black dark:text-white tracking-widest group-hover:text-cyan-500 transition-colors">{link.label}</span>
                 </Component>
               );
             })}
