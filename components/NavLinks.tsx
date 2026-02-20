@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavLink {
   label: string;
@@ -16,46 +16,85 @@ const links: NavLink[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/mert-gen%C3%A7-08b507299/", isExternal: true },
   { label: "Projeler", href: "/projects", isExternal: false },
   { label: "Tasarımlar", href: "/portfolioInsta", isExternal: false },
+  { label: "Deneyimler", href: "/experiencePage", isExternal: false },
 ];
 
 const NavLinks: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex items-center gap-0 bg-white/[0.02] border border-white/10 rounded-none backdrop-blur-3xl relative">
-      {links.map((link, index) => {
-        const isInternal = !link.isExternal;
-        const Component = isInternal ? Link : "a";
-        const extraProps = link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {};
+    <div className="relative">
+      {/* MOBİL HAMBURGER BUTONU */}
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="lg:hidden p-3 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-black dark:text-white flex items-center gap-2"
+      >
+        <div className="flex flex-col gap-1 w-4">
+          <span className={`h-0.5 w-full bg-current transition-all ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+          <span className={`h-0.5 w-full bg-current transition-all ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`h-0.5 w-full bg-current transition-all ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+        </div>
+        <span className="text-[10px] font-black uppercase tracking-widest">Menü</span>
+      </button>
 
-        return (
-          <Component
-            key={link.label}
-            href={link.href}
-            {...extraProps}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            className="relative flex items-center gap-2 px-5 py-2.5 transition-all duration-300 border-r border-white/5 last:border-r-0"
-          >
-            <span className="relative z-10 flex items-center gap-2.5">
-              <div className={`transition-all duration-300 ${hoveredIndex === index ? 'text-cyan-400' : 'text-gray-500'}`}>
-                {renderIcon(link.label)}
-              </div>
-              <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-300 ${hoveredIndex === index ? 'text-white' : 'text-gray-500'}`}>
-                {link.label}
+      {/* MASAÜSTÜ NAV */}
+      <div className="hidden lg:flex items-center gap-0 bg-black/[0.02] dark:bg-white/[0.02] border border-black/10 dark:border-white/10 rounded-none backdrop-blur-3xl">
+        {links.map((link, index) => {
+          const Component = !link.isExternal ? Link : "a";
+          const extraProps = link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {};
+
+          return (
+            <Component
+              key={link.label}
+              href={link.href}
+              {...extraProps}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="relative flex items-center gap-2 px-5 py-2.5 border-r border-black/5 dark:border-white/5 last:border-r-0"
+            >
+              <span className="relative z-10 flex items-center gap-2">
+                <div className={`${hoveredIndex === index ? 'text-cyan-500' : 'text-gray-400'}`}>
+                  {renderIcon(link.label)}
+                </div>
+                <span className={`text-[10px] font-black uppercase tracking-widest ${hoveredIndex === index ? 'text-black dark:text-white' : 'text-gray-400'}`}>
+                  {link.label}
+                </span>
               </span>
-            </span>
-            
-            {hoveredIndex === index && (
-              <motion.span
-                layoutId="navHover"
-                className="absolute inset-0 bg-white/[0.05] rounded-none border-b-2 border-cyan-500"
-                transition={{ type: "spring", bounce: 0, duration: 0.3 }}
-              />
-            )}
-          </Component>
-        );
-      })}
+              {hoveredIndex === index && (
+                <motion.span layoutId="navHover" className="absolute inset-0 bg-black/5 dark:bg-white/5 border-b-2 border-cyan-500" />
+              )}
+            </Component>
+          );
+        })}
+      </div>
+
+      {/* MOBİL AÇILIR MENÜ */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            className="absolute top-full right-0 mt-4 w-64 bg-white dark:bg-[#080808] border border-black/10 dark:border-white/10 shadow-2xl lg:hidden overflow-hidden"
+          >
+            {links.map((link) => {
+              const Component = !link.isExternal ? Link : "a";
+              return (
+                <Component
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-4 px-6 py-4 border-b border-black/5 dark:border-white/5 hover:bg-cyan-500/5 transition-colors"
+                >
+                  <div className="text-cyan-500">{renderIcon(link.label)}</div>
+                  <span className="text-[10px] font-black uppercase text-black dark:text-white tracking-widest">{link.label}</span>
+                </Component>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
@@ -63,12 +102,13 @@ const NavLinks: React.FC = () => {
 const renderIcon = (label: string) => {
   const props = { className: "w-3.5 h-3.5" };
   switch (label) {
-    case "Instagram": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>;
-    case "YouTube": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>;
-    case "GitHub": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
-    case "LinkedIn": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
-    case "Projeler": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>;
-    case "Tasarımlar": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M7.63 7.63L22 22"></path></svg>;
+    case "Instagram": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>;
+    case "YouTube": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.11 1 12 1 12s0 3.89.46 5.58a2.78 2.78 0 0 0 1.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.89 23 12 23 12s0-3.89-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>;
+    case "GitHub": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
+    case "LinkedIn": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
+    case "Projeler": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>;
+    case "Tasarımlar": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.5 1.5"></path><path d="M7.63 7.63L22 22"></path></svg>;
+    case "Deneyimler": return <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>;
     default: return null;
   }
 };

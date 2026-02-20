@@ -11,10 +11,10 @@ const Personal: React.FC = () => {
       className="flex items-center"
     >
       <Link href="/" className="group flex flex-col items-start leading-none">
-        <span className="text-xs font-black tracking-[0.3em] text-white group-hover:text-cyan-400 transition-all duration-300">
+        <span className="text-xs font-black tracking-[0.3em] text-black dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-all duration-300">
           MERT GENÇ
         </span>
-        <span className="text-[8px] font-mono text-white/20 uppercase tracking-[0.4em] mt-1.5 group-hover:text-white/40 transition-colors">
+        <span className="text-[8px] font-mono text-black/30 dark:text-white/20 uppercase tracking-[0.4em] mt-1.5 group-hover:text-black/60 dark:group-hover:text-white/40 transition-colors">
           Software Developer
         </span>
       </Link>
