@@ -12,7 +12,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Mert Genç - Software Developer And Designer</title>
+        <title>Mert Genç | Software Developer And Designer</title>
         <meta name="description" content="Mert Genç'in kişisel portföy sitesi. Full Stack Developer projeleri ve tasarımları." />
       </head>
       <body className="bg-black ">

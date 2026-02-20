@@ -11,7 +11,7 @@ const projects = [
     category: 'FULL-STACK DEVELOPMENT',
     description:
       'Yüksek performanslı mimari ile tasarlanmış, Next.js tabanlı dijital ekosistem. SEO optimizasyonu ve düşük gecikmeli kullanıcı etkileşimi üzerine odaklanıldı.',
-    image: '/portföy.png',
+    image: '/1.jpg',
     link: 'https://github.com/Mertgencc',
     badges: ['Next.js 14', 'Tailwind', 'Framer'],
   },
@@ -20,7 +20,7 @@ const projects = [
     category: 'UI/UX ARCHITECTURE',
     description:
       'Bootstrap altyapısı üzerine inşa edilmiş, yüksek çözünürlüklü veri işleme ve responsive grid sistemi içeren görsel kütüphane platformu.',
-    image: '/bootstrap.png',
+    image: '/2.jpg',
     link: 'https://github.com/Mertgencc',
     badges: ['Bootstrap 5', 'Fluid Design', 'Optimization'],
   },
@@ -33,15 +33,7 @@ const projects = [
     link: 'https://github.com/Mertgencc',
     badges: ['Arduino Core', 'Circuit Design', 'IoT'],
   },
-  {
-    title: 'NEOLAGIFT WEB SITE',
-    category: 'ENTERPRISE SOLUTIONS',
-    description:
-      'ASP.NET 8.0 MVC mimarisi kullanılarak geliştirilmiş ölçeklenebilir satış motoru. SQL tabanlı ilişkisel veritabanı yönetimi ve güvenli transaction altyapısı.',
-    image: '/neolagift.png',
-    link: 'https://github.com/Mertgencc',
-    badges: ['ASP.NET 8.0', 'MSSQL', 'MVC Architecture'],
-  },
+  
 ];
 
 const ProjectsPage: React.FC = () => {

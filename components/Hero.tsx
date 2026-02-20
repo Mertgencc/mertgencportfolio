@@ -4,7 +4,7 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 <Head>
-  <title>Mert Genç - Software Developer And Designer</title>
+  <title>Mert Genç | Software Developer And Designer</title>
   <meta
     name="description"
     content="Mert Genç full stack developer portföy sitesi"
@@ -86,9 +86,36 @@ const projects: Project[] = [
     link: "https://www.youtube.com/@mertgencc",
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
-      { image: "/PORTFOLİO SİTE (1).png", alt: "Full Stack Kod Geliştirme Süreci" },
-      { image: "/PORTFOLİO SİTE (2).png", alt: "IoT Devre Tasarımı ve Kodlama" },
-      { image: "/PORTFOLİO SİTE (3).png", alt: "Responsive Web Arayüzü" },
+      { image: "/portfolio.png", alt: "Full Stack Kod Geliştirme Süreci" },
+      { image: "/portfolio (1).png", alt: "IoT Devre Tasarımı ve Kodlama" },
+      { image: "/portfolio (2).png", alt: "Responsive Web Arayüzü" },
+    ],
+  },
+  {
+    name: "Branding & Content Strategy",
+    description:
+      "Dijital platformlar için kurumsal kimlik ve kreatif görsel tasarım.",
+    stack:
+      "Sosyal medya ekosistemi için marka diline uygun görsel stratejiler geliştiriyor, estetik ve fonksiyonelliği ön planda tutan tasarımlar üretiyorum.",
+    badges: [
+      { name: "Visual Identity" },
+      { name: "Digital Branding" },
+      { name: "Social Media Strategy" },
+      { name: "Graphic Design" },
+      { name: "UI/UX Principles" },
+    ],
+    link: "https://www.youtube.com/@mertgencc",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
+    carousel: [
+      { image: "/portfolio (11).png", alt: "Zarif ve Şık Tasarım" },
+      { image: "/portfolio (10).png", alt: "Keskin Hatlara Sahip Tasarım" },
+      { image: "/portfolio (9).png", alt: "Şık Tanıtım Çalışması" },
+      { image: "/portfolio (8).png", alt: "Modern Tasarım Çalışması" },
+      { image: "/portfolio (7).png", alt: "Mockup Çalışması" },
+      { image: "/portfolio (3).png", alt: "Ticari Ürün Branding Çalışması" },
+      { image: "/portfolio (4).png", alt: "Minimalist Tipografi Tasarımı" },
+      { image: "/portfolio (5).png", alt: "Premium Tanıtım Kartı" },
+      { image: "/MYSTERY.png", alt: "Kreatif Afiş Konsepti" },
     ],
   },
   {
@@ -113,28 +140,7 @@ const projects: Project[] = [
       { image: "/ardunio.png", alt: "Teknik Ürün Modelleme" },
     ],
   },
-  {
-    name: "Branding & Content Strategy",
-    description:
-      "Dijital platformlar için kurumsal kimlik ve kreatif görsel tasarım.",
-    stack:
-      "Sosyal medya ekosistemi için marka diline uygun görsel stratejiler geliştiriyor, estetik ve fonksiyonelliği ön planda tutan tasarımlar üretiyorum.",
-    badges: [
-      { name: "Visual Identity" },
-      { name: "Digital Branding" },
-      { name: "Social Media Strategy" },
-      { name: "Graphic Design" },
-      { name: "UI/UX Principles" },
-    ],
-    link: "https://www.youtube.com/@mertgencc",
-    github: "https://github.com/Mertgencc/mertgencportfolio",
-    carousel: [
-      { image: "/GÜÇLÜ (1).png", alt: "Ticari Ürün Branding Çalışması" },
-      { image: "/göster.png", alt: "Minimalist Tipografi Tasarımı" },
-      { image: "/Zarafet.png", alt: "Premium Tanıtım Kartı" },
-      { image: "/MYSTERY.png", alt: "Kreatif Afiş Konsepti" },
-    ],
-  },
+  
 ];
 
 const Hero: React.FC = () => {
