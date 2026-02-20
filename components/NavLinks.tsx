@@ -25,21 +25,21 @@ const NavLinks: React.FC = () => {
 
   return (
     <div className="relative">
-      {/* MOBIL MENU BUTONU (Hamburger) */}
+      {/* MOBIL MENU BUTONU - text-white ekledik ki siyah zeminde görünsün */}
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden flex items-center gap-2 px-4 py-2 bg-black/[0.02] dark:bg-white/[0.05] border border-black/10 dark:border-white/10 text-black dark:text-white transition-all active:scale-95"
+        className="lg:hidden flex items-center gap-2 px-4 py-2 bg-white/[0.05] border border-white/10 text-white transition-all active:scale-95"
       >
         <div className="flex flex-col gap-1 w-4">
-          <span className={`h-0.5 w-full bg-current transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-          <span className={`h-0.5 w-full bg-current transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-          <span className={`h-0.5 w-full bg-current transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+          <span className={`h-0.5 w-full bg-white transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
+          <span className={`h-0.5 w-full bg-white transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+          <span className={`h-0.5 w-full bg-white transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
         </div>
-        <span className="text-[9px] font-black uppercase tracking-widest">MENÜ</span>
+        <span className="text-[9px] font-black uppercase tracking-widest text-white">MENÜ</span>
       </button>
 
-      {/* MASAÜSTÜ GÖRÜNÜM (Senin Orijinal Tasarımın) */}
-      <div className="hidden lg:flex items-center gap-0 bg-black/[0.02] dark:bg-white/[0.02] border border-black/10 dark:border-white/10 rounded-none backdrop-blur-3xl relative">
+      {/* MASAÜSTÜ GÖRÜNÜM */}
+      <div className="hidden lg:flex items-center gap-0 bg-white/[0.02] border border-white/10 rounded-none backdrop-blur-3xl relative">
         {links.map((link, index) => {
           const isInternal = !link.isExternal;
           const Component = isInternal ? Link : "a";
@@ -52,13 +52,13 @@ const NavLinks: React.FC = () => {
               {...extraProps}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="relative flex items-center gap-2 px-5 py-2.5 transition-all duration-300 border-r border-black/5 dark:border-white/5 last:border-r-0"
+              className="relative flex items-center gap-2 px-5 py-2.5 transition-all duration-300 border-r border-white/5 last:border-r-0"
             >
               <span className="relative z-10 flex items-center gap-2.5">
-                <div className={`transition-all duration-300 ${hoveredIndex === index ? 'text-cyan-500 dark:text-cyan-400' : 'text-gray-400 dark:text-gray-500'}`}>
+                <div className={`transition-all duration-300 ${hoveredIndex === index ? 'text-cyan-400' : 'text-gray-500'}`}>
                   {renderIcon(link.label)}
                 </div>
-                <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-300 ${hoveredIndex === index ? 'text-black dark:text-white' : 'text-gray-400 dark:text-gray-500'}`}>
+                <span className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors duration-300 ${hoveredIndex === index ? 'text-white' : 'text-gray-500'}`}>
                   {link.label}
                 </span>
               </span>
@@ -66,7 +66,7 @@ const NavLinks: React.FC = () => {
               {hoveredIndex === index && (
                 <motion.span
                   layoutId="navHover"
-                  className="absolute inset-0 bg-black/[0.03] dark:bg-white/[0.05] rounded-none border-b-2 border-cyan-500"
+                  className="absolute inset-0 bg-white/[0.05] rounded-none border-b-2 border-cyan-500"
                   transition={{ type: "spring", bounce: 0, duration: 0.3 }}
                 />
               )}
@@ -75,15 +75,14 @@ const NavLinks: React.FC = () => {
         })}
       </div>
 
-      {/* MOBIL AÇILIR PANEL (Beyazlık Sorunu Burada Çözüldü) */}
+      {/* MOBIL AÇILIR PANEL */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            // Arka planı doğrudan senin dark mod rengin olan #030303 yaptık
-            className="absolute top-full right-0 mt-2 w-56 bg-white dark:bg-[#030303] border border-black/10 dark:border-white/10 shadow-2xl flex flex-col lg:hidden z-[999] backdrop-blur-3xl"
+            className="absolute top-full right-0 mt-2 w-56 bg-[#030303] border border-white/10 shadow-2xl flex flex-col lg:hidden z-[999]"
           >
             {links.map((link) => {
               const Component = !link.isExternal ? Link : "a";
@@ -95,12 +94,12 @@ const NavLinks: React.FC = () => {
                   href={link.href}
                   {...extraProps}
                   onClick={() => setIsOpen(false)}
-                  className="px-6 py-4 border-b border-black/5 dark:border-white/5 last:border-0 flex items-center gap-4 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                  className="px-6 py-4 border-b border-white/5 last:border-0 flex items-center gap-4 hover:bg-white/5 transition-colors"
                 >
-                  <div className="text-cyan-500 dark:text-cyan-400">
+                  <div className="text-cyan-400">
                     {renderIcon(link.label)}
                   </div>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-black dark:text-white">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white">
                     {link.label}
                   </span>
                 </Component>
@@ -113,6 +112,7 @@ const NavLinks: React.FC = () => {
   );
 };
 
+// İkon fonksiyonu aynı kalıyor...
 const renderIcon = (label: string) => {
   const props = { className: "w-3.5 h-3.5" };
   switch (label) {
