@@ -18,14 +18,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#030303] text-black dark:text-white selection:bg-cyan-500/30 transition-colors duration-500 overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-[#030303] text-black dark:text-white selection:bg-cyan-500/30 transition-colors duration-500">
       
-      {/* HEADER */}
       <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pointer-events-none">
         <motion.div 
           className={`w-full flex items-center justify-between px-6 md:px-10 py-4 pointer-events-auto transition-all duration-500 border-b ${
             isScrolled 
-              ? "bg-white/90 dark:bg-black/90 backdrop-blur-3xl border-black/5 dark:border-white/10 shadow-2xl" 
+              ? "bg-white/80 dark:bg-black/80 backdrop-blur-3xl border-black/5 dark:border-white/10 shadow-2xl" 
               : "bg-transparent border-transparent"
           }`}
           animate={{ 
@@ -34,7 +33,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         >
           <Personal />
           
-          <nav className="relative">
+          {/* NAV: Mobilde de butonu göstermesi için 'hidden lg:block' kaldırıldı */}
+          <nav className="block">
             <NavLinks />
           </nav>
 
@@ -49,7 +49,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </motion.div>
       </header>
 
-      {/* CONTENT */}
       <div className="relative pt-32">
         <motion.div
           style={{ opacity: useTransform(scrollY, [0, 150], [1, 0]) }}
@@ -63,7 +62,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       
-      {/* AMBIENT LIGHT */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-cyan-600/[0.05] dark:bg-cyan-600/[0.03] blur-[150px] -z-10 pointer-events-none" />
     </div>
   );
