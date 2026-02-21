@@ -18,10 +18,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    /* Arka planı koyu renge sabitledik, yazı rengini varsayılan beyaz yaptık */
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 transition-colors duration-500 overflow-x-hidden">
       
-      {/* HEADER: Sayfa başında da artık transparan değil, sabit koyu renkte */}
       <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pointer-events-none">
         <motion.div 
           className={`w-full flex items-center justify-between px-6 md:px-10 py-4 pointer-events-auto transition-all duration-500 border-b ${
@@ -33,27 +31,31 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             height: isScrolled ? "70px" : "90px"
           }}
         >
-          {/* Sol Kısım: İsim (Personal bileşeninde text-white olmalı) */}
           <Personal />
           
-          {/* Orta Kısım: Navigasyon */}
           <nav className="block">
             <NavLinks />
           </nav>
 
-          {/* Sağ Kısım: Lisans Rozeti (Sadece masaüstü) */}
+          {/* Sadece bu kısmı düzelttim: Navlink yüksekliğinde ama daha dar CV butonu */}
           <div className="hidden sm:block">
-            <div className="flex items-center gap-3 px-4 py-2 bg-white/[0.03] border border-white/10 rounded-none group hover:bg-white/[0.05] transition-all cursor-default">
-              <div className="w-1 h-1 bg-emerald-500 animate-pulse" />
-              <span className="text-[9px] font-black text-gray-400 group-hover:text-white uppercase tracking-[0.3em]">
-                LİSANS
+            <a 
+              href="/mert-genc-cv.pdf" 
+              download="Mert_Genc_CV.pdf"
+              className="flex items-center gap-2 px-3 py-2.5 bg-white/[0.03] border border-white/10 group transition-all duration-300 hover:border-cyan-500/50 hover:bg-white/[0.05] cursor-pointer active:scale-95"
+            >
+              <div className="w-1 h-1 bg-cyan-500 animate-pulse" />
+              <span className="text-[10px] font-black text-gray-400 group-hover:text-white uppercase tracking-[0.2em] flex items-center gap-2">
+                CV
+                <svg className="w-3 h-3 text-cyan-500 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
               </span>
-            </div>
+            </a>
           </div>
         </motion.div>
       </header>
 
-      {/* ANA İÇERIK: Header yüksekliği kadar boşluk bırakıldı */}
       <div className="relative pt-24 md:pt-32">
         <motion.div
           style={{ opacity: useTransform(scrollY, [0, 150], [1, 0]) }}
@@ -69,7 +71,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
       
-      {/* ARKA PLAN EFEKTİ (Ambient Light) */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-cyan-600/[0.03] blur-[150px] -z-10 pointer-events-none" />
     </div>
   );
