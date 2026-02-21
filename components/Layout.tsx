@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="hidden sm:block">
             <a 
               href="/mert-genc-cv.pdf" 
-              download="Mert_Genc_CV.pdf"
+              download="Mert Genç CV.pdf"
               className="flex items-center gap-2 px-3 py-2.5 bg-white/[0.03] border border-white/10 group transition-all duration-300 hover:border-cyan-500/50 hover:bg-white/[0.05] cursor-pointer active:scale-95"
             >
               <div className="w-1 h-1 bg-cyan-500 animate-pulse" />
