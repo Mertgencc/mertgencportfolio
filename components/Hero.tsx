@@ -56,15 +56,15 @@ const projects: Project[] = [
     carousel: [
       {
         image:
-          "/Füme ve Beyaz Modern Dinamik Ürün Tanıtım Instagram Reels Videosu.png",
+          "/Paragraf metniniz (10).png",
         alt: "KUDAKAF'24 Etkinlik Görseli",
       },
       {
-        image: "/WhatsApp Görsel 2024-05-09 saat 16.04.18_6d38ec37.jpg",
+        image: "/Paragraf metniniz (11).png",
         alt: "Sempozyum Sunum Süreci",
       },
       {
-        image: "/WhatsApp Görsel 2024-05-09 saat 16.09.45_a4bd71a8.jpg",
+        image: "/Paragraf metniniz (13).png",
         alt: "Akademik Başarı Sertifikasyonu",
       },
     ],
@@ -87,8 +87,8 @@ const projects: Project[] = [
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       { image: "/portfolio.png", alt: "Full Stack Kod Geliştirme Süreci" },
-      { image: "/portfolio (1).png", alt: "IoT Devre Tasarımı ve Kodlama" },
-      { image: "/portfolio (2).png", alt: "Responsive Web Arayüzü" },
+      { image: "/portfolio (1).png", alt: "Responsive Web Arayüzü" },
+      { image: "/portfolio (2).png", alt: "IoT Devre Tasarımı ve Kodlama" },
     ],
   },
   {
