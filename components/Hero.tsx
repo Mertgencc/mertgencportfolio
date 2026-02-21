@@ -39,7 +39,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "Strategic & Professional",
+    name: "Strategic | Professional",
     description:
       "Bilişim Sistemleri ve Teknolojileri alanında akademik temsil ve saha deneyimi.",
     stack:
@@ -57,22 +57,22 @@ const projects: Project[] = [
       {
         image:
           "/Paragraf metniniz (10).png",
-        alt: "KUDAKAF'24 Etkinlik Görseli",
+        alt: "KUDAKAF'23 Etkinlik Görseli",
       },
       {
         image: "/Paragraf metniniz (11).png",
-        alt: "Sempozyum Sunum Süreci",
+        alt: "Etkinlik Alanı Görseli",
       },
       {
         image: "/Paragraf metniniz (13).png",
-        alt: "Akademik Başarı Sertifikasyonu",
+        alt: "Farklı Disiplinlerden Sunumlar",
       },
     ],
   },
   {
-    name: "Software Development & IoT",
+    name: "Software Development | IoT",
     description:
-      "Next.js tabanlı modern web mimarileri ve gömülü sistem prototipleme.",
+      "Farklı alanlarda geliştirilmiş full-stack web site projeleri",
     stack:
       "React ekosistemi (Next.js, TailwindCSS) ile kullanıcı deneyimi yüksek arayüzler ve Arduino platformu ile donanım-yazılım entegrasyonu geliştiriyorum.",
     badges: [
@@ -89,6 +89,31 @@ const projects: Project[] = [
       { image: "/portfolio.png", alt: "Full Stack Kod Geliştirme Süreci" },
       { image: "/portfolio (1).png", alt: "Responsive Web Arayüzü" },
       { image: "/portfolio (2).png", alt: "IoT Devre Tasarımı ve Kodlama" },
+    ],
+  },
+  {
+    name: "Creative Design | Programming | 3D Modeling",
+    description:
+      "Farklı disiplinlerle eş zamanlı ürün planlama ve çıkartma",
+    stack:
+      "Teknik projelerin dijital ikizlerini ve tanıtım materyallerini; Blender (modelleme/render) ve CapCut (video kurgu) araçlarıyla optimize ediyorum.",
+    badges: [
+      { name: "Blender 3D" },
+      { name: "3D Rendering" },
+      { name: "Adobe Photoshop" },
+      { name: "Video Post-Production" },
+      { name: "CapCut" },
+    ],
+    link: "https://www.youtube.com/@mertgencc",
+    github: "https://github.com/Mertgencc/mertgencportfolio",
+    carousel: [
+      { image: "/Paragraf metniniz (19).png", alt: "Visual Studio 2022 IDE" },
+      { image: "/Paragraf metniniz (20).png", alt: "Visual Studio Code" },
+      { image: "/Paragraf metniniz (18).png", alt: "Figma ile Tasarım" },
+      { image: "/grafik.png", alt: "Görsel Düzenleme" },
+      { image: "/Paragraf metniniz (17).png", alt: "Blender 3B Modelleme" },
+      { image: "/Paragraf metniniz (21).png", alt: "Video Edit ve Düzenleme" },
+      { image: "/Paragraf metniniz (22).png", alt: "Robotik Kodlama Temelleri" },
     ],
   },
   {
@@ -118,28 +143,7 @@ const projects: Project[] = [
       { image: "/MYSTERY.png", alt: "Kreatif Afiş Konsepti" },
     ],
   },
-  {
-    name: "Creative Design & 3D Modeling",
-    description:
-      "Blender ile 3D görselleştirme ve profesyonel post-prodüksiyon çözümleri.",
-    stack:
-      "Teknik projelerin dijital ikizlerini ve tanıtım materyallerini; Blender (modelleme/render) ve CapCut (video kurgu) araçlarıyla optimize ediyorum.",
-    badges: [
-      { name: "Blender 3D" },
-      { name: "3D Rendering" },
-      { name: "Adobe Photoshop" },
-      { name: "Video Post-Production" },
-      { name: "CapCut" },
-    ],
-    link: "https://www.youtube.com/@mertgencc",
-    github: "https://github.com/Mertgencc/mertgencportfolio",
-    carousel: [
-      { image: "/blender (1).png", alt: "3D Obje Render Çalışması" },
-      { image: "/blender (1)2.png", alt: "3D Sahne Tasarımı" },
-      { image: "/capcut.png", alt: "Dinamik Video İçerik Üretimi" },
-      { image: "/ardunio.png", alt: "Teknik Ürün Modelleme" },
-    ],
-  },
+  
   
 ];
 
