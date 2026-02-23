@@ -28,6 +28,8 @@ const projects = [
     description: 'IoT ve donanım bileşenlerinin web katmanında dokümantasyonu. Teknik devre şemaları ve sinyal işleme algoritmalarının web tabanlı görselleştirmesi.',
     image: '/arduino.png',
     link: 'https://github.com/Mertgencc',
+    // BURAYA VİDEO LİNKİNİ EKLEDİK
+    videoLink: 'https://www.linkedin.com/feed/update/urn:li:activity:7285680752933920769/',
     badges: ['Arduino Core', 'Circuit Design', 'IoT'],
   },
 ];
@@ -36,7 +38,6 @@ const ProjectsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // 3 saniye sonra projeleri göster
     const timer = setTimeout(() => setIsLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
@@ -44,7 +45,6 @@ const ProjectsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
-      {/* --- PROJECTS LOADER --- */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
@@ -58,13 +58,11 @@ const ProjectsPage: React.FC = () => {
             }}
             className="fixed inset-0 z-[2000] bg-[#030303] flex items-center justify-center"
           >
-            {/* Arka Plan Glow Efekti */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px]" />
             </div>
 
             <div className="relative flex flex-col items-center">
-              {/* Dönen Orbital Halka */}
               <div className="relative w-64 h-64 flex items-center justify-center">
                 <svg className="absolute w-full h-full rotate-[-90deg]">
                   <motion.circle
@@ -80,7 +78,6 @@ const ProjectsPage: React.FC = () => {
                   <circle cx="50%" cy="50%" r="45%" stroke="white" strokeWidth="1" fill="none" opacity="0.05" />
                 </svg>
 
-                {/* MERKEZDEKİ "PROJECTS" YAZISI */}
                 <div className="flex flex-col items-center z-10">
                   <div className="flex gap-1.5 md:gap-2">
                     {"PROJECTS".split("").map((char, i) => (
@@ -119,14 +116,12 @@ const ProjectsPage: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* --- ASIL İÇERİK --- */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={!isLoading ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
         className="pt-20 px-4"
       >
-        {/* Header */}
         <header className="max-w-7xl mx-auto mb-20 border-l-2 border-cyan-500 pl-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-2 bg-cyan-500 animate-pulse" />
@@ -140,7 +135,6 @@ const ProjectsPage: React.FC = () => {
           </p>
         </header>
 
-        {/* Grid Yapısı */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
           {projects.map((project, index) => (
             <motion.div
@@ -173,18 +167,28 @@ const ProjectsPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="pt-8">
+                <div className="pt-8 flex flex-wrap gap-6">
                   <Link href={project.link} target="_blank" className="group/link inline-flex items-center gap-4 py-2 border-b border-white/5 hover:border-cyan-500 transition-all duration-500">
                     <span className="text-[10px] font-black uppercase tracking-[0.4em]">View Source</span>
                     <svg className="w-3 h-3 text-cyan-500 transform group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                   </Link>
+
+                  {/* SADECE VİDEO LİNKİ VARSA GÖSTERİLECEK BUTON */}
+                  {project.videoLink && (
+                    <Link href={project.videoLink} target="_blank" className="group/link inline-flex items-center gap-4 py-2 border-b border-white/5 hover:border-red-500 transition-all duration-500">
+                      <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 group-hover:text-white">Watch Demo</span>
+                      <div className="relative flex items-center justify-center">
+                        <div className="absolute w-2 h-2 bg-red-500 rounded-full animate-ping opacity-20" />
+                        <svg className="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                      </div>
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Footer */}
         <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-8">
           <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of File &bull; Mert Genc Archive</span>
           <div className="flex gap-4"><div className="w-2 h-2 bg-white/5" /><div className="w-2 h-2 bg-white/10" /><div className="w-2 h-2 bg-cyan-500/40 animate-pulse" /></div>
