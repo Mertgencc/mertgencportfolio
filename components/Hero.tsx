@@ -55,8 +55,7 @@ const projects: Project[] = [
     github: "https://github.com/Mertgencc/mertgencportfolio",
     carousel: [
       {
-        image:
-          "/Paragraf metniniz (10).png",
+        image: "/Paragraf metniniz (10).png",
         alt: "KUDAKAF'23 Etkinlik Görseli",
       },
       {
@@ -71,8 +70,7 @@ const projects: Project[] = [
   },
   {
     name: "Software Development | IoT",
-    description:
-      "Farklı alanlarda geliştirilmiş full-stack web site projeleri",
+    description: "Farklı alanlarda geliştirilmiş full-stack web site projeleri",
     stack:
       "React ekosistemi (Next.js, TailwindCSS) ile kullanıcı deneyimi yüksek arayüzler ve Arduino platformu ile donanım-yazılım entegrasyonu geliştiriyorum.",
     badges: [
@@ -93,8 +91,7 @@ const projects: Project[] = [
   },
   {
     name: "Creative Design | Programming | 3D Modeling",
-    description:
-      "Farklı disiplinlerle eş zamanlı ürün planlama ve çıkartma",
+    description: "Farklı disiplinlerle eş zamanlı ürün planlama ve çıkartma",
     stack:
       "Teknik projelerin dijital ikizlerini ve tanıtım materyallerini; Blender (modelleme/render) ve CapCut (video kurgu) araçlarıyla optimize ediyorum.",
     badges: [
@@ -113,7 +110,10 @@ const projects: Project[] = [
       { image: "/grafik.png", alt: "Görsel Düzenleme" },
       { image: "/Paragraf metniniz (17).png", alt: "Blender 3B Modelleme" },
       { image: "/Paragraf metniniz (21).png", alt: "Video Edit ve Düzenleme" },
-      { image: "/Paragraf metniniz (22).png", alt: "Robotik Kodlama Temelleri" },
+      {
+        image: "/Paragraf metniniz (22).png",
+        alt: "Robotik Kodlama Temelleri",
+      },
     ],
   },
   {
@@ -143,8 +143,6 @@ const projects: Project[] = [
       { image: "/MYSTERY.png", alt: "Kreatif Afiş Konsepti" },
     ],
   },
-  
-  
 ];
 
 const Hero: React.FC = () => {
@@ -193,7 +191,8 @@ const Hero: React.FC = () => {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-3xl font-extrabold tracking-tight text-white mb-4 sm:mb-6"
                 >
-                  Merhabalar, ben <span className="text-cyan-400">Mert Genç</span>{" "}
+                  Merhabalar, ben{" "}
+                  <span className="text-cyan-400">Mert Genç</span>{" "}
                   <br className="hidden sm:block" />
                   Software Developer
                 </motion.h1>
