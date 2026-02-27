@@ -2,7 +2,31 @@ import Image from "next/image";
 import Head from "next/head";
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-
+export const metadata = {
+  title: "Mert Genç | Full Stack Developer",
+  description:
+    "Full Stack Developer specializing in ASP.NET Core, Next.js, React and modern web technologies.",
+  keywords: [
+    "Mert Genç",
+    "Full Stack Developer",
+    "ASP.NET Developer",
+    "Next.js Developer",
+    "React Developer",
+    "Web Developer Türkiye"
+  ],
+  authors: [{ name: "Mert Genç" }],
+  creator: "Mert Genç",
+  metadataBase: new URL("https://mertgenc.top"),
+  openGraph: {
+    title: "Mert Genç | Full Stack Developer",
+    description:
+      "Modern, scalable and performance-focused web applications.",
+    url: "https://mertgenc.top",
+    siteName: "Mert Genç Portfolio",
+    locale: "tr_TR",
+    type: "website",
+  },
+};
 <Head>
   <title>Mert Genç | Software Developer And Designer</title>
   <meta
