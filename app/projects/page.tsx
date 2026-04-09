@@ -28,7 +28,6 @@ const projects = [
     description: 'IoT ve donanım bileşenlerinin web katmanında dokümantasyonu. Teknik devre şemaları ve sinyal işleme algoritmalarının web tabanlı görselleştirmesi.',
     image: '/arduino.png',
     link: 'https://github.com/Mertgencc',
-    // BURAYA VİDEO LİNKİNİ EKLEDİK
     videoLink: 'https://www.linkedin.com/feed/update/urn:li:activity:7285680752933920769/',
     badges: ['Arduino Core', 'Circuit Design', 'IoT'],
   },
@@ -45,77 +44,38 @@ const ProjectsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
+      {/* --- PROJECTS LOADER (SADELEŞTİRİLMİŞ) --- */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
-            key="projects-loader"
+            key="minimal-projects-loader"
             initial={{ opacity: 1 }}
-            exit={{ 
-              opacity: 0,
-              filter: "blur(20px)",
-              scale: 1.05,
-              transition: { duration: 0.8, ease: "easeInOut" }
-            }}
+            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
             className="fixed inset-0 z-[2000] bg-[#030303] flex items-center justify-center"
           >
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px]" />
-            </div>
-
-            <div className="relative flex flex-col items-center">
-              <div className="relative w-64 h-64 flex items-center justify-center">
-                <svg className="absolute w-full h-full rotate-[-90deg]">
-                  <motion.circle
-                    cx="50%" cy="50%" r="45%"
-                    stroke="#22d3ee"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="40 160"
-                    strokeLinecap="round"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                  <circle cx="50%" cy="50%" r="45%" stroke="white" strokeWidth="1" fill="none" opacity="0.05" />
-                </svg>
-
-                <div className="flex flex-col items-center z-10">
-                  <div className="flex gap-1.5 md:gap-2">
-                    {"PROJECTS".split("").map((char, i) => (
-                      <motion.span
-                        key={i}
-                        initial={{ opacity: 0 }}
-                        animate={{ 
-                          opacity: 1,
-                          color: ["#1f2937", "#22d3ee", "#1f2937"] 
-                        }}
-                        transition={{ 
-                          delay: i * 0.15,
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        className="text-2xl md:text-3xl font-black tracking-widest uppercase"
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
-                  </div>
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "60%" }}
-                    transition={{ delay: 0.5, duration: 1 }}
-                    className="h-[1px] bg-cyan-500/50 mt-2" 
-                  />
-                  <span className="mt-2 text-[8px] font-mono tracking-[0.5em] text-white/20 uppercase">
-                    Loading Workplace
-                  </span>
-                </div>
+            <div className="flex flex-col items-center gap-6">
+              <motion.span
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="text-[10px] font-mono text-white/80 tracking-[0.5em] uppercase"
+              >
+                Loading Workplace
+              </motion.span>
+              
+              <div className="w-32 h-[1px] bg-white/10 relative overflow-hidden">
+                <motion.div 
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "100%" }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 bg-white"
+                />
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
+      {/* --- ASIL İÇERİK --- */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={!isLoading ? { opacity: 1, y: 0 } : {}}
@@ -173,7 +133,6 @@ const ProjectsPage: React.FC = () => {
                     <svg className="w-3 h-3 text-cyan-500 transform group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                   </Link>
 
-                  {/* SADECE VİDEO LİNKİ VARSA GÖSTERİLECEK BUTON */}
                   {project.videoLink && (
                     <Link href={project.videoLink} target="_blank" className="group/link inline-flex items-center gap-4 py-2 border-b border-white/5 hover:border-red-500 transition-all duration-500">
                       <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 group-hover:text-white">Watch Demo</span>
@@ -191,7 +150,11 @@ const ProjectsPage: React.FC = () => {
 
         <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-8">
           <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of File &bull; Mert Genc Archive</span>
-          <div className="flex gap-4"><div className="w-2 h-2 bg-white/5" /><div className="w-2 h-2 bg-white/10" /><div className="w-2 h-2 bg-cyan-500/40 animate-pulse" /></div>
+          <div className="flex gap-4">
+            <div className="w-2 h-2 bg-white/5" />
+            <div className="w-2 h-2 bg-white/10" />
+            <div className="w-2 h-2 bg-cyan-500/40 animate-pulse" />
+          </div>
         </footer>
       </motion.div>
     </div>

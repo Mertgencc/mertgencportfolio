@@ -33,73 +33,31 @@ const ExperiencePage = () => {
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
-      {/* --- EXPERIENCE LOADER --- */}
+      {/* --- EXPERIENCE LOADER (SADELEŞTİRİLMİŞ) --- */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
-            key="exp-loader"
+            key="minimal-exp-loader"
             initial={{ opacity: 1 }}
-            exit={{ 
-              opacity: 0,
-              filter: "blur(20px)",
-              scale: 1.05,
-              transition: { duration: 0.8, ease: "easeInOut" }
-            }}
+            exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
             className="fixed inset-0 z-[2000] bg-[#030303] flex items-center justify-center"
           >
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px]" />
-            </div>
-
-            <div className="relative flex flex-col items-center">
-              <div className="relative w-64 h-64 flex items-center justify-center">
-                <svg className="absolute w-full h-full rotate-[-90deg]">
-                  <motion.circle
-                    cx="50%" cy="50%" r="45%"
-                    stroke="#22d3ee"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="40 160"
-                    strokeLinecap="round"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                  />
-                  <circle cx="50%" cy="50%" r="45%" stroke="white" strokeWidth="1" fill="none" opacity="0.05" />
-                </svg>
-
-                {/* MERKEZDEKİ "EXPERIENCE" YAZISI */}
-                <div className="flex flex-col items-center z-10">
-                  <div className="flex gap-1 md:gap-1.5">
-                    {"EXPERIENCE".split("").map((char, i) => (
-                      <motion.span
-                        key={i}
-                        initial={{ opacity: 0 }}
-                        animate={{ 
-                          opacity: 1,
-                          color: ["#1f2937", "#22d3ee", "#1f2937"] 
-                        }}
-                        transition={{ 
-                          delay: i * 0.12, // Harf sayısı fazla olduğu için delay'i biraz kıstım (0.12)
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }}
-                        className="text-xl md:text-2xl font-black tracking-widest uppercase"
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
-                  </div>
-                  <motion.div 
-                    initial={{ width: 0 }}
-                    animate={{ width: "70%" }}
-                    transition={{ delay: 0.5, duration: 1 }}
-                    className="h-[1px] bg-cyan-500/50 mt-2" 
-                  />
-                  <span className="mt-2 text-[7px] font-mono tracking-[0.4em] text-white/20 uppercase">
-                    2022 - 2026
-                  </span>
-                </div>
+            <div className="flex flex-col items-center gap-6">
+              <motion.span
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="text-[10px] font-mono text-white/80 tracking-[0.5em] uppercase"
+              >
+                Loading Experience
+              </motion.span>
+              
+              <div className="w-32 h-[1px] bg-white/10 relative overflow-hidden">
+                <motion.div 
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "100%" }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 bg-white"
+                />
               </div>
             </div>
           </motion.div>
