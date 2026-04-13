@@ -534,33 +534,117 @@ const Hero: React.FC = () => {
                   className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 sm:pb-6 scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800"
                 >
                   {project.carousel.map((item, imgIndex) => (
-                    <motion.div
-                      key={imgIndex}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: imgIndex * 0.1, duration: 0.5 }}
-                      className="min-w-[260px] sm:min-w-[320px] md:min-w-[350px] snap-center"
-                    >
-                      <div className="card bg-[#222] rounded-lg shadow-lg p-4 sm:p-6 hover:shadow-gray-800 transition-shadow">
-                        <div className="bg-[#444444] rounded-md border border-gray-700 h-48 sm:h-64 relative">
-                          <Image
-                            src={item.image}
-                            alt={item.alt}
-                            fill
-                            className="object-contain p-2"
-                          />
-                        </div>
-                        <h3 className="text-lg sm:text-xl font-semibold mt-3 sm:mt-4">
-                          {item.alt}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-gray-400 mt-1 sm:mt-2">
-                          {project.name === "Sosyal Medya Tasarımları"
-                            ? `${item.alt} için özel olarak tasarlanmış sosyal medya içeriği`
-                            : project.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
+  <motion.div
+    key={imgIndex}
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: imgIndex * 0.1, duration: 0.5 }}
+    className="min-w-[260px] sm:min-w-[320px] md:min-w-[350px] snap-center"
+  >
+    <div className="card bg-[#1a1a1a] rounded-2xl shadow-xl p-4 sm:p-6 hover:shadow-cyan-900/10 transition-all duration-500 border border-white/5">
+      
+      {/* Resim Alanı */}
+      <div className="bg-[#222] rounded-xl border border-white/5 h-48 sm:h-64 relative overflow-hidden group/img">
+        <Image
+          src={item.image}
+          alt={item.alt}
+          fill
+          className="object-contain p-2 transition-transform duration-700 group-hover/img:scale-110"
+        />
+      </div>
+
+      {/* Yazı Alanı */}
+      <h3 className="text-lg sm:text-xl font-semibold mt-3 sm:mt-4 text-zinc-100 px-1">
+        {item.alt}
+      </h3>
+      <p className="text-xs sm:text-sm text-zinc-500 mt-1 sm:mt-2 px-1 line-clamp-2">
+        {project.name === "Sosyal Medya Tasarımları"
+          ? `${item.alt} için özel olarak tasarlanmış sosyal medya içeriği`
+          : project.description}
+      </p>
+
+      {/* --- MODERNIZE BUTONLAR --- */}
+      <div className="flex items-center justify-center gap-5 mt-6 pt-5 border-t border-white/5">
+        
+        {/* 1. İNCELE (SOL) */}
+        <div className="relative group/btn">
+          <a
+            href={project.link || "#"}
+            target="_blank"
+            className="w-11 h-11 flex items-center justify-center bg-zinc-800/50 text-zinc-400 rounded-xl transition-all duration-300 hover:bg-cyan-500 hover:text-black hover:ring-4 hover:ring-cyan-500/20 hover:-translate-y-1 border border-white/5"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover/btn:scale-110"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </a>
+          
+          <div className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 bg-zinc-950 border border-white/10 rounded-xl overflow-hidden shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover/btn:opacity-100 group-hover/btn:translate-y-0 transition-all duration-300 z-50">
+             <div className="h-28 relative bg-zinc-900">
+                <Image src={item.image} alt="Preview" fill className="object-cover opacity-60" />
+                {/* Tam Kapanan Alt Gölge */}
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent bottom-[-1px]" />
+                <div className="absolute bottom-2 inset-x-0 text-center z-10">
+                  <span className="text-[9px] font-black text-white bg-cyan-500/90 px-3 py-1 rounded shadow-lg uppercase tracking-widest">ANALİZ</span>
+                </div>
+             </div>
+             <div className="p-2 text-center text-[9px] text-zinc-500 font-bold uppercase tracking-tighter bg-zinc-950 border-t border-white/5">Teknik Detaylar</div>
+          </div>
+        </div>
+
+        {/* 2. ÖNİZLEME (ORTA - BÜYÜK) */}
+        <div className="relative group/btn">
+          <a
+            href="#"
+            target="_blank"
+            className="w-12 h-12 flex items-center justify-center bg-zinc-800/80 text-zinc-200 rounded-xl transition-all duration-300 hover:bg-cyan-500 hover:text-black hover:ring-4 hover:ring-cyan-500/30 hover:-translate-y-1 border border-cyan-500/20 shadow-lg"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover/btn:scale-110"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          
+          <div className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-64 bg-zinc-950 border border-cyan-500/40 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.9)] opacity-0 translate-y-2 pointer-events-none group-hover/btn:opacity-100 group-hover/btn:translate-y-0 transition-all duration-300 z-50">
+             <div className="h-36 relative">
+                <Image src={item.image} alt="Live Preview" fill className="object-cover" />
+                <div className="absolute top-2.5 right-2.5 flex items-center gap-1.5 px-2 py-1 bg-black/80 rounded-md border border-cyan-500/50 z-10">
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                  </span>
+                  <span className="text-[8px] text-white font-black tracking-widest uppercase">Live Demo</span>
+                </div>
+                {/* Tam Kapanan Alt Gölge */}
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent bottom-[-1px]" />
+             </div>
+             <div className="p-3 flex items-center justify-between bg-zinc-950 border-t border-white/5">
+                <span className="text-[10px] text-zinc-100 font-black tracking-widest uppercase">Canlı Önizleme</span>
+                <span className="text-[10px] text-cyan-400 font-bold">AÇ →</span>
+             </div>
+          </div>
+        </div>
+        
+        {/* 3. GITHUB (SAĞ) */}
+        <div className="relative group/btn">
+          <a
+            href={project.github || "#"}
+            target="_blank"
+            className="w-11 h-11 flex items-center justify-center bg-zinc-800/50 text-zinc-400 rounded-xl transition-all duration-300 hover:bg-cyan-500 hover:text-black hover:ring-4 hover:ring-cyan-500/20 hover:-translate-y-1 border border-white/5"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24" className="transition-transform group-hover/btn:scale-110"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          
+          <div className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-48 bg-zinc-950 border border-white/10 rounded-xl overflow-hidden shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover/btn:opacity-100 group-hover/btn:translate-y-0 transition-all duration-300 z-50">
+             <div className="h-28 relative bg-[#0a0a0a] flex flex-col items-center justify-center gap-3">
+                <div className="relative">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="white" className="opacity-90 relative z-10" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                  <div className="absolute inset-0 bg-white/20 blur-xl rounded-full opacity-20" />
+                </div>
+                <div className="text-[10px] font-black text-zinc-100 bg-white/5 px-3 py-1 rounded-full border border-white/10 tracking-widest uppercase relative z-10">KODU İNCELE</div>
+             </div>
+             <div className="p-2 text-center text-[9px] text-zinc-500 font-bold border-t border-white/5 bg-zinc-950 uppercase">GitHub Repository</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </motion.div>
+))}
                 </div>
                 <button
                   onClick={() => scrollLeft(index)}
