@@ -157,7 +157,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </div>
                 ))}
                 
-                {/* Hızlı Butonlar - Herkese hitap eden kısım */}
                 <div className="flex flex-wrap gap-2 pt-2">
                   {["Mert Kim?", "Projeler", "İletişim"].map((btn) => (
                     <button
@@ -188,11 +187,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         <button
           onClick={() => setIsTerminalOpen(!isTerminalOpen)}
-          className={`p-4 rounded-full border transition-all duration-500 shadow-2xl ${
-            isTerminalOpen ? "bg-cyan-500 border-cyan-400 rotate-90" : "bg-black border-white/10 hover:border-cyan-500"
+          className={`p-4 rounded-full border transition-all duration-500 relative ${
+            isTerminalOpen 
+              ? "bg-cyan-500 border-white shadow-[0_0_25px_rgba(6,182,212,0.6)] rotate-90" 
+              : "bg-black border-white/60 shadow-[0_0_20px_rgba(255,255,255,0.15)]"
           }`}
         >
-          <svg className={`w-6 h-6 ${isTerminalOpen ? "text-black" : "text-cyan-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {/* Sabit Parlak Hat Efekti (Mobilde de görünmesi için hover'dan çıkardım) */}
+          <div className={`absolute inset-0 rounded-full border ${isTerminalOpen ? "border-white/20" : "border-white/40 shadow-[inset_0_0_10px_rgba(255,255,255,0.1)]"}`} />
+
+          <svg className={`w-6 h-6 relative z-10 ${isTerminalOpen ? "text-black" : "text-cyan-500"}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isTerminalOpen ? (
                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             ) : (
