@@ -95,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Personal />
           <nav className="block"><NavLinks /></nav>
           <div className="hidden sm:block">
-            <a href="/Mert_Genc_Cv.pdf" download className="flex items-center gap-2 px-3 py-2.5 bg-white/[0.03] border border-white/10 group transition-all duration-300 hover:border-cyan-500/50 hover:bg-white/[0.05]">
+            <a href="/Mert Genç.pdf" download className="flex items-center gap-2 px-3 py-2.5 bg-white/[0.03] border border-white/10 group transition-all duration-300 hover:border-cyan-500/50 hover:bg-white/[0.05]">
               <div className="w-1 h-1 bg-cyan-500 animate-pulse" />
               <span className="text-[10px] font-black text-gray-400 group-hover:text-white uppercase tracking-[0.2em] flex items-center gap-2">CV <svg className="w-3 h-3 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></span>
             </a>
