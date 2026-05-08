@@ -31,20 +31,68 @@ const projects = [
     videoLink: 'https://www.linkedin.com/feed/update/urn:li:activity:7285680752933920769/',
     badges: ['Arduino Core', 'Circuit Design', 'IoT'],
   },
+  {
+    title: 'TASK MANAGEMENT SYSTEM',
+    category: 'WEB APPLICATION',
+    description: 'Dinamik veri yönetimi ve interaktif kullanıcı deneyimi sunan, iş akışını optimize eden görev yönetim platformu.',
+    image: '/task.jpeg',
+    link: 'https://github.com/Mertgencc',
+    badges: ['React', 'Management', 'CRUD'],
+  },
+  {
+    title: 'MINIMAL NOTES APP',
+    category: 'UI/UX DESIGN',
+    description: 'Minimalist estetik anlayışıyla geliştirilmiş, kullanıcı odaklı ve yüksek okunabilirlik sunan not alma arayüzü.',
+    image: '/notess.png',
+    link: 'https://github.com/Mertgencc',
+    badges: ['UI Design', 'Frontend', 'Creative'],
+  },
+  {
+    title: 'EXPENSE TRACKER',
+    category: 'DATA ANALYSIS',
+    description: 'Finansal verilerin anlık takibi, gelir-gider analizi ve bütçe yönetimi sağlayan teknik çözüm.',
+    image: '/expense.png',
+    link: 'https://github.com/Mertgencc',
+    badges: ['Fintech', 'Logic', 'Web'],
+  },
+  {
+    title: 'SHOPPING TRACKER',
+    category: 'E-COMMERCE UTILITY',
+    description: 'Alışveriş listelerini optimize eden, kategori bazlı veri filtreleme özelliğine sahip yardımcı uygulama.',
+    image: '/shop.png',
+    link: 'https://github.com/Mertgencc',
+    badges: ['Utility', 'Filtering', 'Optimization'],
+  },
+  {
+    title: 'BUDGET PLANNER',
+    category: 'FINANCIAL ARCHITECTURE',
+    description: 'Kapsamlı bütçe planlama ve tasarruf hedefleri belirleme imkanı sunan yüksek etkileşimli dashboard.',
+    image: '/budget.jpeg',
+    link: 'https://github.com/Mertgencc',
+    badges: ['Budgeting', 'Next.js', 'Clean UI'],
+  },
+  {
+    title: 'HABIT TRACKER',
+    category: 'PRODUCTIVITY TOOL',
+    description: 'Kişisel gelişim süreçlerini görselleştiren, alışkanlık takibi ve motivasyon odaklı dijital asistan.',
+    image: '/habit.jpeg',
+    link: 'https://github.com/Mertgencc',
+    badges: ['Productivity', 'Growth', 'Tracking'],
+  }
 ];
 
 const ProjectsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
+    const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
-      {/* --- PROJECTS LOADER (SADELEŞTİRİLMİŞ) --- */}
+      {/* --- LOADER --- */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
@@ -59,9 +107,8 @@ const ProjectsPage: React.FC = () => {
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="text-[10px] font-mono text-white/80 tracking-[0.5em] uppercase"
               >
-                Loading Workplace
+                Accessing Files
               </motion.span>
-              
               <div className="w-32 h-[1px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={{ x: "-100%" }}
@@ -75,13 +122,13 @@ const ProjectsPage: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* --- ASIL İÇERİK --- */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={!isLoading ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="pt-20 px-4"
+        className="pt-20 px-4 pb-20"
       >
+        {/* --- HEADER --- */}
         <header className="max-w-7xl mx-auto mb-20 border-l-2 border-cyan-500 pl-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-2 bg-cyan-500 animate-pulse" />
@@ -95,51 +142,74 @@ const ProjectsPage: React.FC = () => {
           </p>
         </header>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+        {/* --- MODERN GRID --- */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="group relative bg-[#050505] overflow-hidden"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="group"
             >
-              <div className="p-8 md:p-12 h-full flex flex-col">
-                <div className="flex justify-between items-center mb-8">
-                  <span className="text-[9px] font-mono text-gray-500 tracking-[0.3em] font-bold uppercase group-hover:text-cyan-500 transition-colors">
-                    // {project.category}
+              <div className="relative h-full bg-[#080808] border border-white/5 rounded-2xl p-6 transition-all duration-500 hover:border-cyan-500/30 hover:bg-[#0a0a0a] hover:shadow-[0_20px_50px_-20px_rgba(6,182,212,0.15)]">
+                
+                <div className="flex justify-between items-center mb-6">
+                  <span className="text-[9px] font-mono text-cyan-500/70 font-bold uppercase tracking-widest bg-cyan-500/5 px-2 py-1 rounded">
+                    {project.category}
                   </span>
-                  <span className="text-[9px] font-mono text-white/10">[ 0{index + 1} ]</span>
+                  <span className="text-[10px] font-mono text-white/10 group-hover:text-white/30 transition-colors">[ 0{index + 1} ]</span>
                 </div>
 
-                <div className="relative aspect-video mb-8 overflow-hidden border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <Image src={project.image} alt={project.title} fill className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-700" />
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill 
+                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
                 </div>
 
-                <div className="space-y-4 flex-grow">
-                  <h2 className="text-2xl font-black tracking-tighter text-white/90 group-hover:text-white transition-colors uppercase">{project.title}</h2>
-                  <p className="text-gray-500 text-[12px] leading-relaxed font-medium line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 pt-2">
+                <div className="space-y-4">
+                  <h2 className="text-xl font-bold tracking-tight text-white/90 group-hover:text-white transition-colors uppercase">
+                    {project.title}
+                  </h2>
+                  <p className="text-gray-500 text-[11px] leading-relaxed font-medium line-clamp-2">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-1.5 pt-2">
                     {project.badges.map((badge, i) => (
-                      <span key={i} className="px-2 py-1 bg-white/[0.02] border border-white/5 text-[8px] font-mono text-cyan-500/70 uppercase tracking-widest group-hover:text-cyan-400 transition-all">{badge}</span>
+                      <span key={i} className="px-2 py-0.5 border border-white/10 text-[7px] font-mono text-gray-400 uppercase tracking-tighter rounded group-hover:border-cyan-500/20 group-hover:text-cyan-500/60 transition-colors">
+                        {badge}
+                      </span>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-8 flex flex-wrap gap-6">
-                  <Link href={project.link} target="_blank" className="group/link inline-flex items-center gap-4 py-2 border-b border-white/5 hover:border-cyan-500 transition-all duration-500">
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em]">View Source</span>
-                    <svg className="w-3 h-3 text-cyan-500 transform group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                <div className="mt-8 flex items-center gap-3">
+                  <Link 
+                    href={project.link} 
+                    target="_blank" 
+                    className="flex-1 flex items-center justify-center gap-2 py-3 bg-white/[0.03] hover:bg-white/10 border border-white/5 rounded-xl transition-all duration-300 group/btn"
+                  >
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">Source Code</span>
+                    <svg className="w-3 h-3 text-cyan-500 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                   </Link>
 
                   {project.videoLink && (
-                    <Link href={project.videoLink} target="_blank" className="group/link inline-flex items-center gap-4 py-2 border-b border-white/5 hover:border-red-500 transition-all duration-500">
-                      <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 group-hover:text-white">Watch Demo</span>
-                      <div className="relative flex items-center justify-center">
-                        <div className="absolute w-2 h-2 bg-red-500 rounded-full animate-ping opacity-20" />
-                        <svg className="w-3 h-3 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                      </div>
+                    <Link 
+                      href={project.videoLink} 
+                      target="_blank" 
+                      className="p-3 bg-red-500/5 hover:bg-red-500/10 border border-red-500/20 rounded-xl transition-all duration-300 group/demo"
+                    >
+                      <svg className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </Link>
                   )}
                 </div>
@@ -148,9 +218,10 @@ const ProjectsPage: React.FC = () => {
           ))}
         </div>
 
-        <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-8">
-          <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of File &bull; Mert Genc Archive</span>
-          <div className="flex gap-4">
+        {/* --- FOOTER --- */}
+        <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-12">
+          <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of Archive &bull; Mert Genc Archive</span>
+          <div className="flex gap-4 opacity-50">
             <div className="w-2 h-2 bg-white/5" />
             <div className="w-2 h-2 bg-white/10" />
             <div className="w-2 h-2 bg-cyan-500/40 animate-pulse" />
