@@ -37,7 +37,7 @@ const projects = [
     description: 'Dinamik veri yönetimi ve interaktif kullanıcı deneyimi sunan, iş akışını optimize eden görev yönetim platformu.',
     image: '/task.jpeg',
     link: 'https://github.com/Mertgencc',
-    badges: ['React', 'Management', 'CRUD'],
+    badges: ['HTML', 'CSS', 'JavaScript', 'Web'],
   },
   {
     title: 'MINIMAL NOTES APP',
@@ -45,7 +45,7 @@ const projects = [
     description: 'Minimalist estetik anlayışıyla geliştirilmiş, kullanıcı odaklı ve yüksek okunabilirlik sunan not alma arayüzü.',
     image: '/notess.png',
     link: 'https://github.com/Mertgencc',
-    badges: ['UI Design', 'Frontend', 'Creative'],
+    badges: ['HTML', 'CSS', 'JavaScript', 'Web'],
   },
   {
     title: 'EXPENSE TRACKER',
@@ -53,7 +53,7 @@ const projects = [
     description: 'Finansal verilerin anlık takibi, gelir-gider analizi ve bütçe yönetimi sağlayan teknik çözüm.',
     image: '/expense.png',
     link: 'https://github.com/Mertgencc',
-    badges: ['Fintech', 'Logic', 'Web'],
+    badges: ['HTML', 'CSS', 'JavaScript', 'Web'],
   },
   {
     title: 'SHOPPING TRACKER',
@@ -61,7 +61,7 @@ const projects = [
     description: 'Alışveriş listelerini optimize eden, kategori bazlı veri filtreleme özelliğine sahip yardımcı uygulama.',
     image: '/shop.png',
     link: 'https://github.com/Mertgencc',
-    badges: ['Utility', 'Filtering', 'Optimization'],
+    badges: ['HTML', 'CSS', 'JavaScript', 'Web'],
   },
   {
     title: 'BUDGET PLANNER',
@@ -69,15 +69,15 @@ const projects = [
     description: 'Kapsamlı bütçe planlama ve tasarruf hedefleri belirleme imkanı sunan yüksek etkileşimli dashboard.',
     image: '/budget.jpeg',
     link: 'https://github.com/Mertgencc',
-    badges: ['Budgeting', 'Next.js', 'Clean UI'],
+    badges: ['HTML', 'CSS', 'JavaScript', 'Web'],
   },
   {
     title: 'HABIT TRACKER',
     category: 'PRODUCTIVITY TOOL',
     description: 'Kişisel gelişim süreçlerini görselleştiren, alışkanlık takibi ve motivasyon odaklı dijital asistan.',
-    image: '/habit.jpeg',
+    image: '/image.png',
     link: 'https://github.com/Mertgencc',
-    badges: ['Productivity', 'Growth', 'Tracking'],
+    badges: ['HTML', 'CSS', 'JavaScript', 'Web'],
   }
 ];
 
@@ -85,18 +85,17 @@ const ProjectsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
+    const timer = setTimeout(() => setIsLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
-      {/* --- LOADER --- */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
-            key="minimal-projects-loader"
+            key="projects-loader"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
             className="fixed inset-0 z-[2000] bg-[#030303] flex items-center justify-center"
@@ -105,16 +104,16 @@ const ProjectsPage: React.FC = () => {
               <motion.span
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="text-[10px] font-mono text-white/80 tracking-[0.5em] uppercase"
+                className="text-[10px] font-mono text-cyan-500 tracking-[0.5em] uppercase font-bold"
               >
-                Accessing Files
+                Projects Loading
               </motion.span>
-              <div className="w-32 h-[1px] bg-white/10 relative overflow-hidden">
+              <div className="w-40 h-[1px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={{ x: "-100%" }}
                   animate={{ x: "100%" }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-white"
+                  className="absolute inset-0 bg-cyan-500"
                 />
               </div>
             </div>
@@ -128,7 +127,6 @@ const ProjectsPage: React.FC = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="pt-20 px-4 pb-20"
       >
-        {/* --- HEADER --- */}
         <header className="max-w-7xl mx-auto mb-20 border-l-2 border-cyan-500 pl-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-2 bg-cyan-500 animate-pulse" />
@@ -142,18 +140,15 @@ const ProjectsPage: React.FC = () => {
           </p>
         </header>
 
-        {/* --- MODERN GRID --- */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <div className="relative h-full bg-[#080808] border border-white/5 rounded-2xl p-6 transition-all duration-500 hover:border-cyan-500/30 hover:bg-[#0a0a0a] hover:shadow-[0_20px_50px_-20px_rgba(6,182,212,0.15)]">
+            <div key={index} className="group relative p-[1px] rounded-2xl overflow-hidden">
+              
+              {/* --- DÖNEN KENARLIK IŞIĞI (Sadece Hover'da Görünür ve Döner) --- */}
+              <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#030303_0%,#030303_70%,#06b6d4_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              {/* --- KART İÇERİĞİ --- */}
+              <div className="relative h-full bg-[#080808] rounded-2xl p-6 transition-all duration-500 group-hover:bg-[#0a0a0a]/90 backdrop-blur-xl">
                 
                 <div className="flex justify-between items-center mb-6">
                   <span className="text-[9px] font-mono text-cyan-500/70 font-bold uppercase tracking-widest bg-cyan-500/5 px-2 py-1 rounded">
@@ -162,14 +157,14 @@ const ProjectsPage: React.FC = () => {
                   <span className="text-[10px] font-mono text-white/10 group-hover:text-white/30 transition-colors">[ 0{index + 1} ]</span>
                 </div>
 
-                <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-700">
+                <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-white/5">
                   <Image 
                     src={project.image} 
                     alt={project.title} 
                     fill 
-                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000" 
+                    className="object-cover scale-100 group-hover:scale-110 transition-transform duration-1000" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 to-transparent opacity-40 group-hover:opacity-10 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/60 to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
                 </div>
 
                 <div className="space-y-4">
@@ -182,7 +177,7 @@ const ProjectsPage: React.FC = () => {
                   
                   <div className="flex flex-wrap gap-1.5 pt-2">
                     {project.badges.map((badge, i) => (
-                      <span key={i} className="px-2 py-0.5 border border-white/10 text-[7px] font-mono text-gray-400 uppercase tracking-tighter rounded group-hover:border-cyan-500/20 group-hover:text-cyan-500/60 transition-colors">
+                      <span key={i} className="px-2 py-0.5 border border-white/10 text-[7px] font-mono text-gray-400 uppercase tracking-tighter rounded group-hover:border-cyan-500/30 group-hover:text-cyan-500 transition-colors">
                         {badge}
                       </span>
                     ))}
@@ -195,8 +190,8 @@ const ProjectsPage: React.FC = () => {
                     target="_blank" 
                     className="flex-1 flex items-center justify-center gap-2 py-3 bg-white/[0.03] hover:bg-white/10 border border-white/5 rounded-xl transition-all duration-300 group/btn"
                   >
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">Source Code</span>
-                    <svg className="w-3 h-3 text-cyan-500 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em]">GitHub</span>
+                    <svg className="w-3 h-3 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   </Link>
@@ -205,22 +200,21 @@ const ProjectsPage: React.FC = () => {
                     <Link 
                       href={project.videoLink} 
                       target="_blank" 
-                      className="p-3 bg-red-500/5 hover:bg-red-500/10 border border-red-500/20 rounded-xl transition-all duration-300 group/demo"
+                      className="p-3 bg-red-500/5 hover:bg-red-500/10 border border-red-500/20 rounded-xl transition-all duration-300"
                     >
-                      <svg className="w-4 h-4 text-red-500 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </Link>
                   )}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* --- FOOTER --- */}
         <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-12">
-          <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of Archive &bull; Mert Genc Archive</span>
+          <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of Archive &bull; Mert Genc Portfolio</span>
           <div className="flex gap-4 opacity-50">
             <div className="w-2 h-2 bg-white/5" />
             <div className="w-2 h-2 bg-white/10" />
