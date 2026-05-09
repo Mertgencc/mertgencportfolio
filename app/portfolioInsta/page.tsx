@@ -99,8 +99,8 @@ const DesignsPage: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Aspect oranı tasarımların dikey yapısına uygun olarak 4/5 bırakıldı */}
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden mb-5 border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-700">
+                {/* grayscale kaldırıldı, direkt renkli görüntü */}
+                <div className="relative aspect-[4/5] rounded-xl overflow-hidden mb-5 border border-white/5 transition-all duration-700">
                   <Image 
                     src={design.src} 
                     alt={design.alt} 
@@ -109,7 +109,7 @@ const DesignsPage: React.FC = () => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     quality={90}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
                 </div>
 
                 <div className="space-y-3 flex-grow flex flex-col justify-between">
