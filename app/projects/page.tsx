@@ -144,7 +144,7 @@ const ProjectsPage: React.FC = () => {
           {projects.map((project, index) => (
             <div key={index} className="group relative p-[1px] rounded-2xl overflow-hidden">
               
-              {/* --- DÖNEN KENARLIK IŞIĞI (Sadece Hover'da Görünür ve Döner) --- */}
+              {/* --- DÖNEN KENARLIK IŞIĞI --- */}
               <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#030303_0%,#030303_70%,#06b6d4_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* --- KART İÇERİĞİ --- */}
@@ -154,7 +154,7 @@ const ProjectsPage: React.FC = () => {
                   <span className="text-[9px] font-mono text-cyan-500/70 font-bold uppercase tracking-widest bg-cyan-500/5 px-2 py-1 rounded">
                     {project.category}
                   </span>
-                  <span className="text-[10px] font-mono text-white/10 group-hover:text-white/30 transition-colors">[ 0{index + 1} ]</span>
+                  {/* Numaralandırma buradan kaldırıldı */}
                 </div>
 
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-6 border border-white/5">
