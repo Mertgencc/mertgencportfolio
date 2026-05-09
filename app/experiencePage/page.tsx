@@ -7,7 +7,7 @@ const ExperiencePage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
+    const timer = setTimeout(() => setIsLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -18,7 +18,12 @@ const ExperiencePage = () => {
       period: "2024 - 2025",
       title: "Software Intern",
       tags: ["C#", "Enterprise Architecture", "ASP.NET"],
-      desc: "Üniversite 3. sınıf kapsamında kurumsal yazılım mimarileri ve backend süreçleri üzerine yoğunlaşan staj programı."
+      desc: "Üniversite 3. sınıf kapsamında kurumsal yazılım mimarileri ve backend süreçleri üzerine yoğunlaşan staj programı.",
+      details: [
+        "SQL veritabanı temellerini öğrendim ve temel sorgular geliştirdim.",
+        "Java programlama dili ile temel uygulamalar geliştirdim.",
+        "Java ve SQL kullanarak kitap otomasyon sistemi tasarladım ve geliştirdim."
+      ]
     },
     {
       company: "ELSASOFT YAZILIM",
@@ -26,14 +31,18 @@ const ExperiencePage = () => {
       period: "2023 - 2024",
       title: "Software Intern",
       tags: ["React", "JavaScript", "Web Tech"],
-      desc: "Üniversite 2. sınıf kapsamında modern web teknolojileri ve dinamik arayüz geliştirme üzerine saha tecrübesi."
+      desc: "Üniversite 2. sınıf kapsamında modern web teknolojileri ve dinamik arayüz geliştirme üzerine saha tecrübesi.",
+      details: [
+        "ASP.NET 8.0 kullanarak dinamik ve ölçeklenebilir bir web uygulaması geliştirdim.",
+        "Dapper ORM ile SQL veritabanı entegrasyonu sağlayarak veri işlemlerini optimize ettim.",
+        "RESTful API mimarisi ile frontend–backend arasında veri akışı sağlayan bir sistem tasarladım."
+      ]
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#030303] text-white selection:bg-cyan-500/30 overflow-x-hidden">
       
-      {/* --- EXPERIENCE LOADER (SADELEŞTİRİLMİŞ) --- */}
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
@@ -46,17 +55,16 @@ const ExperiencePage = () => {
               <motion.span
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="text-[10px] font-mono text-white/80 tracking-[0.5em] uppercase"
+                className="text-[10px] font-mono text-cyan-500 tracking-[0.5em] uppercase font-bold"
               >
                 Loading Experience
               </motion.span>
-              
-              <div className="w-32 h-[1px] bg-white/10 relative overflow-hidden">
+              <div className="w-40 h-[1px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={{ x: "-100%" }}
                   animate={{ x: "100%" }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-white"
+                  className="absolute inset-0 bg-cyan-500"
                 />
               </div>
             </div>
@@ -64,32 +72,25 @@ const ExperiencePage = () => {
         )}
       </AnimatePresence>
 
-      {/* --- ASIL İÇERİK --- */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={!isLoading ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
         className="max-w-4xl mx-auto py-24 px-6"
       >
-        {/* ÜST BAŞLIK */}
-        <div className="text-center mb-16 space-y-3">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="inline-block px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 text-cyan-500 text-[9px] font-black tracking-[0.3em] uppercase"
-          >
-            2022-2026
-          </motion.div>
-          <h1 className="text-4xl md:text-5xl font-black tracking-tighter italic uppercase text-white leading-none">
-            Deneyimler
-          </h1>
-        </div>
+        <header className="max-w-7xl mx-auto mb-20 border-l-2 border-cyan-500 pl-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-2 h-2 bg-cyan-500 animate-pulse" />
+            <span className="text-[10px] font-mono text-cyan-500 tracking-[0.4em] font-bold uppercase">
+              Professional Timeline 2022-2026
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">DENEYİMLER</h1>
+        </header>
 
         {/* ÜNİVERSİTE KARTI */}
-        <motion.div className="relative mb-16 group">
-          <div className="absolute -left-2 top-0 bottom-0 w-[2px] bg-cyan-500/50" />
-          <div className="bg-[#080808] border border-white/10 p-1 shadow-xl">
-            <div className="border border-white/5 p-8 md:p-10 relative overflow-hidden bg-gradient-to-br from-white/[0.02] to-transparent">
+        <motion.div className="relative mb-16 group p-[1px] rounded-2xl overflow-hidden bg-white/5">
+           <div className="relative bg-[#080808] p-8 md:p-10 rounded-2xl overflow-hidden bg-gradient-to-br from-white/[0.02] to-transparent border border-white/5">
               <div className="flex flex-col lg:flex-row justify-between gap-8 relative z-10">
                 <div className="flex-1 space-y-6">
                   <div className="space-y-1">
@@ -126,7 +127,7 @@ const ExperiencePage = () => {
                         <motion.div 
                           initial={{ width: 0 }}
                           animate={{ width: "75%" }}
-                          transition={{ duration: 1.5, delay: 3.2, ease: "easeOut" }}
+                          transition={{ duration: 1.5, delay: 2.7, ease: "easeOut" }}
                           className="absolute h-full bg-cyan-500"
                         />
                       </div>
@@ -135,10 +136,8 @@ const ExperiencePage = () => {
                 </div>
               </div>
             </div>
-          </div>
         </motion.div>
 
-        {/* ARA BÖLÜCÜ */}
         <div className="flex items-center gap-4 mb-10 px-2">
           <span className="text-[9px] font-mono text-gray-400 font-black tracking-[0.4em] uppercase">
             Work_History
@@ -146,58 +145,76 @@ const ExperiencePage = () => {
           <div className="h-[1px] flex-1 bg-white/10" />
         </div>
 
-        {/* STAJLAR */}
-        <div className="grid grid-cols-1 gap-4">
+        {/* STAJLAR (ANIMASYONLU IŞIK EFEKTİ İLE) */}
+        <div className="grid grid-cols-1 gap-8">
           {experiences.map((exp, idx) => (
             <motion.div
               key={idx}
-              className="group relative bg-[#050505] border border-white/10 p-8 hover:border-cyan-500/40 transition-all duration-300 shadow-sm"
+              className="group relative p-[1px] rounded-2xl overflow-hidden"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
             >
-              <div className="flex flex-col md:flex-row justify-between gap-6">
-                <div className="space-y-3 flex-1">
-                  <div className="flex items-center gap-3">
-                    <h3 className="text-xl md:text-2xl font-black tracking-tighter uppercase italic text-white group-hover:text-cyan-500 transition-colors">
-                      {exp.company}
-                    </h3>
-                    <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full opacity-50" />
-                    <span className="text-[9px] font-mono text-gray-400 tracking-[0.1em] uppercase">
-                      {exp.location}
+              {/* --- DÖNEN KENARLIK IŞIĞI --- */}
+              <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#030303_0%,#030303_70%,#06b6d4_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative h-full bg-[#080808] border border-white/5 p-8 transition-all duration-500 group-hover:bg-[#0a0a0a]/90 backdrop-blur-xl rounded-2xl">
+                <div className="flex flex-col md:flex-row justify-between gap-6">
+                  <div className="space-y-4 flex-1">
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-xl md:text-2xl font-black tracking-tighter uppercase italic text-white group-hover:text-cyan-500 transition-colors">
+                        {exp.company}
+                      </h3>
+                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full opacity-50" />
+                      <span className="text-[9px] font-mono text-gray-400 tracking-[0.1em] uppercase">
+                        {exp.location}
+                      </span>
+                    </div>
+
+                    <p className="text-gray-400 text-[13px] leading-relaxed max-w-2xl font-medium">
+                      {exp.desc}
+                    </p>
+
+                    {/* YAPILANLAR LİSTESİ */}
+                    <div className="space-y-2 py-2">
+                      {exp.details.map((detail, dIdx) => (
+                        <div key={dIdx} className="flex items-start gap-2 group/item">
+                           <span className="text-cyan-500 mt-0.5 text-xs">✔</span>
+                           <p className="text-[11px] text-gray-500 group-hover/item:text-gray-300 transition-colors leading-relaxed uppercase tracking-wide">
+                             {detail}
+                           </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {exp.tags.map((tag) => (
+                        <span key={tag} className="text-[8px] font-mono font-bold border border-white/10 px-2 py-1 uppercase text-gray-400 group-hover:text-cyan-500 group-hover:border-cyan-500/30 transition-colors rounded">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col md:items-end justify-start shrink-0">
+                    <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
+                      {exp.title}
+                    </span>
+                    <span className="text-xs font-mono text-cyan-500 font-black mt-4 underline decoration-cyan-500/30 underline-offset-8">
+                      {exp.period}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-[13px] leading-relaxed max-w-2xl">
-                    {exp.desc}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {exp.tags.map((tag) => (
-                      <span key={tag} className="text-[8px] font-mono font-bold border border-white/10 px-2 py-0.5 uppercase text-gray-400 group-hover:text-cyan-500 group-hover:border-cyan-500/30 transition-colors">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex flex-col md:items-end justify-center shrink-0">
-                  <span className="text-[10px] font-black uppercase text-white tracking-widest leading-none">
-                    {exp.title}
-                  </span>
-                  <span className="text-xs font-mono text-cyan-500 font-black mt-1.5 underline decoration-cyan-500/30 underline-offset-4">
-                    {exp.period}
-                  </span>
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-500 group-hover:w-full transition-all duration-500" />
             </motion.div>
           ))}
         </div>
 
-        {/* FOOTER */}
         <footer className="mt-24 text-center">
           <div className="h-px w-20 bg-cyan-500/20 mx-auto mb-4" />
           <span className="text-[8px] font-mono text-gray-500 uppercase tracking-[0.5em]">
-            Mert Genc // System_Verified_Log
+            Mert Genc | EXPERIENCE
           </span>
         </footer>
       </motion.div>

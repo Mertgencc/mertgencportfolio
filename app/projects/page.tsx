@@ -214,7 +214,7 @@ const ProjectsPage: React.FC = () => {
         </div>
 
         <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-12">
-          <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">End of Archive &bull; Mert Genc Portfolio</span>
+          <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">MERT GENÇ &bull; PROJECTS</span>
           <div className="flex gap-4 opacity-50">
             <div className="w-2 h-2 bg-white/5" />
             <div className="w-2 h-2 bg-white/10" />

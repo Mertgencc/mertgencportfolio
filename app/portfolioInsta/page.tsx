@@ -148,7 +148,7 @@ const DesignsPage: React.FC = () => {
 
         <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-12">
           <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">
-            Rendered in 2026.sys &bull; Mert Genc Portfolio
+            MERT GENÇ &bull; PORTFOLIO
           </span>
           <div className="flex gap-4 opacity-50">
             <div className="w-2 h-2 bg-white/5" />
