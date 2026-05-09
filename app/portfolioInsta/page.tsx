@@ -84,7 +84,7 @@ const DesignsPage: React.FC = () => {
         </header>
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {designs.map((design, index) => (
+          {designs.map((design) => (
             <div key={design.id} className="group relative p-[1px] rounded-2xl overflow-hidden flex flex-col">
               
               {/* --- DÖNEN KENARLIK IŞIĞI --- */}
@@ -93,12 +93,9 @@ const DesignsPage: React.FC = () => {
               {/* --- KART İÇERİĞİ --- */}
               <div className="relative h-full bg-[#080808] rounded-2xl p-5 transition-all duration-500 group-hover:bg-[#0a0a0a]/90 backdrop-blur-xl flex flex-col">
                 
-                <div className="flex justify-between items-center mb-5">
+                <div className="flex justify-start items-center mb-5">
                   <span className="text-[9px] font-mono text-cyan-500/70 font-bold uppercase tracking-widest bg-cyan-500/5 px-2 py-1 rounded">
                     {design.tag}
-                  </span>
-                  <span className="text-[10px] font-mono text-white/10 group-hover:text-white/30 transition-colors">
-                    [ ID_{design.id.toString().padStart(3, '0')} ]
                   </span>
                 </div>
 
