@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 const designs = [
   { id: 1, src: '/ESSENCE.png', alt: 'Minimalist Composition', width: 1080, height: 1350, tag: 'SOCIAL_MEDIA' },
@@ -25,7 +26,7 @@ const DesignsPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
+    const timer = setTimeout(() => setIsLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -35,7 +36,7 @@ const DesignsPage: React.FC = () => {
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
-            key="minimal-loader"
+            key="designs-loader"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 0.8, ease: "easeInOut" } }}
             className="fixed inset-0 z-[2000] bg-[#030303] flex items-center justify-center"
@@ -44,16 +45,16 @@ const DesignsPage: React.FC = () => {
               <motion.span
                 animate={{ opacity: [0.3, 1, 0.3] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="text-[10px] font-mono text-white/80 tracking-[0.5em] uppercase"
+                className="text-[10px] font-mono text-cyan-500 tracking-[0.5em] uppercase font-bold"
               >
-                Loading Designs
+                Designs Loading
               </motion.span>
-              <div className="w-32 h-[1px] bg-white/10 relative overflow-hidden">
+              <div className="w-40 h-[1px] bg-white/10 relative overflow-hidden">
                 <motion.div 
                   initial={{ x: "-100%" }}
                   animate={{ x: "100%" }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute inset-0 bg-white"
+                  className="absolute inset-0 bg-cyan-500"
                 />
               </div>
             </div>
@@ -65,7 +66,7 @@ const DesignsPage: React.FC = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={!isLoading ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="py-20 px-4"
+        className="pt-20 px-4 pb-20"
       >
         <header className="max-w-7xl mx-auto mb-20 border-l-2 border-cyan-500 pl-8">
           <div className="flex items-center gap-3 mb-4">
@@ -82,59 +83,77 @@ const DesignsPage: React.FC = () => {
           </p>
         </header>
 
-        {/* Orijinal gap-px ve bg-white/10 yapısı korundu */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-px bg-white/10 border border-white/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {designs.map((design, index) => (
-            <motion.div
-              key={`${design.id}-${index}`}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: (index % 4) * 0.1 }}
-              className="group relative bg-[#050505] overflow-hidden"
-            >
-              {/* --- DÖNEN MAVİ IŞIK EFEKTİ --- */}
-              <div className="absolute inset-[-500%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_70%,#06b6d4_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+            <div key={design.id} className="group relative p-[1px] rounded-2xl overflow-hidden flex flex-col">
+              
+              {/* --- DÖNEN KENARLIK IŞIĞI --- */}
+              <div className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#030303_0%,#030303_70%,#06b6d4_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* İçerik Katmanı - Padding (p-[1px]) ile alttaki ışığın görünmesi sağlanır */}
-              <div className="relative h-full w-full bg-[#050505] z-10 m-[1px] box-border">
-                <div className="relative aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <Image
-                    src={design.src}
-                    alt={design.alt}
-                    fill
-                    className="object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    quality={90}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
-                  <div className="absolute top-4 left-4 z-10">
-                    <span className="px-2 py-1 bg-black/80 backdrop-blur-md border border-white/10 text-[8px] font-mono text-cyan-400 tracking-[0.2em]">
-                      {design.tag}
-                    </span>
-                  </div>
+              {/* --- KART İÇERİĞİ --- */}
+              <div className="relative h-full bg-[#080808] rounded-2xl p-5 transition-all duration-500 group-hover:bg-[#0a0a0a]/90 backdrop-blur-xl flex flex-col">
+                
+                <div className="flex justify-between items-center mb-5">
+                  <span className="text-[9px] font-mono text-cyan-500/70 font-bold uppercase tracking-widest bg-cyan-500/5 px-2 py-1 rounded">
+                    {design.tag}
+                  </span>
+                  <span className="text-[10px] font-mono text-white/10 group-hover:text-white/30 transition-colors">
+                    [ ID_{design.id.toString().padStart(3, '0')} ]
+                  </span>
                 </div>
 
-                <div className="p-5 border-t border-white/5 space-y-2 relative z-10">
-                  <div className="flex justify-between items-center">
-                    <p className="text-[10px] font-black text-gray-400 group-hover:text-white transition-colors tracking-widest uppercase truncate pr-4">
+                {/* Aspect oranı tasarımların dikey yapısına uygun olarak 4/5 bırakıldı */}
+                <div className="relative aspect-[4/5] rounded-xl overflow-hidden mb-5 border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <Image 
+                    src={design.src} 
+                    alt={design.alt} 
+                    fill 
+                    className="object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    quality={90}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
+                </div>
+
+                <div className="space-y-3 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h2 className="text-lg font-bold tracking-tight text-white/90 group-hover:text-white transition-colors uppercase line-clamp-1">
                       {design.alt}
-                    </p>
-                    <span className="text-[9px] font-mono text-white/10 shrink-0">
-                      ID_{design.id.toString().padStart(3, '0')}
-                    </span>
+                    </h2>
+                    
+                    <div className="flex flex-wrap gap-1.5 pt-3">
+                      <span className="px-2 py-0.5 border border-white/10 text-[7px] font-mono text-gray-400 uppercase tracking-tighter rounded group-hover:border-cyan-500/30 group-hover:text-cyan-500 transition-colors">
+                        {design.width}x{design.height}
+                      </span>
+                      <span className="px-2 py-0.5 border border-white/10 text-[7px] font-mono text-gray-400 uppercase tracking-tighter rounded group-hover:border-cyan-500/30 group-hover:text-cyan-500 transition-colors">
+                        HQ RENDER
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex items-center gap-3">
+                    <Link 
+                      href={design.src} 
+                      target="_blank" 
+                      className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-white/[0.03] hover:bg-white/10 border border-white/5 rounded-xl transition-all duration-300 group/btn"
+                    >
+                      <span className="text-[9px] font-black uppercase tracking-[0.2em]">İNCELE</span>
+                      <svg className="w-3 h-3 text-cyan-500 transform group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 pt-8">
+        <footer className="max-w-7xl mx-auto mt-20 flex flex-col sm:flex-row justify-between items-center gap-6 border-t border-white/5 py-12">
           <span className="text-[9px] font-mono text-white/20 tracking-[0.5em] uppercase">
-            Rendered in 2026.sys &bull; Mert Genc
+            Rendered in 2026.sys &bull; Mert Genc Portfolio
           </span>
-          <div className="flex gap-4">
+          <div className="flex gap-4 opacity-50">
             <div className="w-2 h-2 bg-white/5" />
             <div className="w-2 h-2 bg-white/10" />
             <div className="w-2 h-2 bg-cyan-500/40 animate-pulse" />
