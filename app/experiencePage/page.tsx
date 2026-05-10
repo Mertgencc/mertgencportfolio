@@ -214,7 +214,7 @@ const ExperiencePage = () => {
         <footer className="mt-24 text-center">
           <div className="h-px w-20 bg-cyan-500/20 mx-auto mb-4" />
           <span className="text-[8px] font-mono text-gray-500 uppercase tracking-[0.5em]">
-            Mert Genc | EXPERIENCE
+            Mert Genc | EXPERIENCES
           </span>
         </footer>
       </motion.div>
